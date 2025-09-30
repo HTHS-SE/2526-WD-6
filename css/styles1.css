@@ -1,6 +1,8 @@
 /* *ADDISON STYLESHEET* */
 /*primarily for index and books html pages*/
 
+
+/**CLASS STYLING**/
 .nb-background-color{   /* navbar background color */ /*TODO: change color*/
     background-color: var(--color-1);
 }
@@ -25,7 +27,7 @@
     background: var(--color-bg);
 }
 
-/* -----------------Underline Animation CSS -----------------*/
+/**UNDERLINE ANIMATION STYLING**/
 .hover-underline-animation {
     display: inline-block;
     position: relative;
@@ -49,3 +51,8 @@
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
 }
+
+/**ID STYLING**/
+
+/**ELEMENT STYLING**/
+
