@@ -1,7 +1,5 @@
 .nb-background-color {
-    /* navbar background color */
-    /*TODO: change color*/
-    background-color: #cca8e9;
+    background-color: var(--color-2);
 }
 
 .nbMenuItem {
