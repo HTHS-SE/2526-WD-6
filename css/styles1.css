@@ -15,6 +15,16 @@
     color: var(--color-bg);
 }
 
+
+/**Image Styling**/
+.navbar img {
+    height:100px;
+}
+
+.information img{
+    height:150px;
+}
+
 :root {
     /*https://www.shecodes.io/palettes/267*/
     --color-1: #233142;
