@@ -1,12 +1,15 @@
+/* *ADDISON STYLESHEET* */
+/*primarily for index and books html pages*/
+
 .nb-background-color{   /* navbar background color */ /*TODO: change color*/
-    background-color: #cca8e9;
+    background-color: var(--color-1);
 }
 
 .nbMenuItem{               /* navbar link text properties */
     font-size:25px;
     margin-left: 10px;
     margin-right: 10px;
-    color: #023E8A;
+    color: var(--color-bg);
 }
 
 :root { /*https://www.shecodes.io/palettes/267*/
@@ -18,4 +21,29 @@
 
 .container-lg {
     background: var(--color-bg);
+}
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #023E8A;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
 }
