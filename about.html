@@ -19,6 +19,49 @@
 
 <body class="body">
     <div class="container-lg">
+
+        <!--*Navbar*-->
+        <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+
+            <!--LG means large breakpoint for resizing, navbar-dark means dark bar light text-->
+                <div class="container">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="img/science-fiction.png" alt="Science Fiction Logo" class="d-inline-block align-text-top psize">
+                    </a>
+    
+                 <!--Hamburger Menu Button-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon">
+        
+                        </span>
+                    </button>
+        
+                <!--Collapsable Navbar Menu w/ Hover Underline-->
+                    <div class="collapse navbar-collapse" id="navmenu">
+                        <!--Links to menu button-->
+                        <ul class="navbar-nav ms-auto">
+        
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link hover-underline-animation nbMenuItem">Showcase</a>
+                            </li>
+        
+                            <li class="nav-item">
+                               <a href="books.html" class="nav-link hover-underline-animation nbMenuItem">Books/Authors</a>
+                             </li>
+        
+                              <li class="nav-item">
+                                   <a href="recommend.html"
+                                    class="nav-link hover-underline-animation nbMenuItem">Recommendations</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a href="about.html" class="nav-link hover-underline-animation nbMenuItem">About Us</a>
+                            </li>
+                        </ul>
+                      </div>
+                </div>
+            </nav>
+
         <section class="authors">
             <div class="container">
                 <br>
@@ -66,5 +109,6 @@
                 </a>
             </div>
         </footer>
+        
     </div>
 </body>
