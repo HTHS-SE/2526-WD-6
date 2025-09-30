@@ -1,21 +1,26 @@
-.nb-background-color{   /* navbar background color */ /*TODO: change color*/
+.nb-background-color {
+    /* navbar background color */
+    /*TODO: change color*/
     background-color: #cca8e9;
 }
 
-.nbMenuItem{               /* navbar link text properties */
-    font-size:25px;
+.nbMenuItem {
+    /* navbar link text properties */
+    font-size: 25px;
     margin-left: 10px;
     margin-right: 10px;
     color: #023E8A;
 }
 
-:root { /*https://www.shecodes.io/palettes/267*/
-    --color-1: #233142; 
+:root {
+    /*https://www.shecodes.io/palettes/267*/
+    --color-1: #233142;
     --color-2: #455d7a;
     --color-3: #f95959;
-    --color-bg: #e3e3e3; 
+    --color-bg: #e3e3e3;
 }
 
 .container-lg {
     background: var(--color-bg);
+    color: var(--color-1);
 }
