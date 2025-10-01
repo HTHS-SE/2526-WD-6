@@ -3,7 +3,9 @@
 
 
 /**CLASS STYLING**/
-.nb-background-color{   /* navbar background color */ /*TODO: change color*/
+.nb-background-color {
+    /* navbar background color */
+    /*TODO: change color*/
     background-color: var(--color-1);
 }
 
@@ -18,11 +20,11 @@
 
 /**Image Styling**/
 .navbar img {
-    height:100px;
+    height: 100px;
 }
 
-.information img{
-    height:150px;
+.information img {
+    height: 150px;
 }
 
 :root {
@@ -42,8 +44,8 @@
     display: inline-block;
     position: relative;
     /*color: #0087ca;*/
-  }
-  
+}
+
 .hover-underline-animation:after {
     content: '';
     position: absolute;
@@ -56,13 +58,24 @@
     /*transform-origin: bottom right;*/
     transition: transform 0.35s ease-out;
 }
-  
+
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
 }
 
 /**ID STYLING**/
+#scroll-up-arrow {
+    bottom: 0;
+    padding: 1rem;
+}
+
+@media (min-width: 576px) {
+    #scroll-up-arrow {
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 3rem;
+    }
+}
 
 /**ELEMENT STYLING**/
-
