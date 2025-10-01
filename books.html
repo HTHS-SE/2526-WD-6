@@ -73,51 +73,265 @@
         <section class="books">
             <div class="containter">
 
-                <!--*First book/author combo*-->
                 <div class="row row-cols-1 row-cols-md-2 g-5 p-5">
+
+                    <!--*First book/author combo*-->
                     <div class="col">
                         <div class="card about">
                             <img src="img/" alt="This is How You Lose The Time War Cover" class="card-img-top">
+
                             <div class="card-body">
-                                <h4 class="card-title">Title: This is How You Lose the Time War</h4>
-                                <!--TODO Add dropdown menu here! and put summary text in comment-->
+
+                                <!--This creates our dropdown information about the books-->
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="time-war" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#time-war-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            This is How You Lose The Time War                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="time-war-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#time-war">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
                             </div>
+
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="card about">
                             <img src="img/" alt="Amal El-Mohtar and Max Gladstone" class="card-img-top">
+
                             <div class="card-body">
-                                <h4 class="card-title">By Amal El-Mohtar and Max Gladstone</h4>
-                                 <!--TODO Add dropdown menu here! and put summary text in comment-->
+
+                                <!--?The title and author are synced at the moment, do we like that?-->
+                                <!--This creates our dropdown information about the books-->
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="time-war" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#time-war-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            By Amal El-Mohtar and Max Gladstone                 
+                                            </button>
+                                        </h2>
+                                        <!-- About The Authors -->
+                                        <div id="time-war-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#time-war">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--*Second combo*-->
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Dune Cover" class="card-img-top">
+
+                            <div class="card-body">
+                                
+                                <!--This creates our dropdown information about the books-->
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="dune" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#dune-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            Dune                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="dune-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#dune">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Frank Herbert" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="dune" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#dune-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            By Frank Herbert                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="dune-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#dune">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!--TODO figure out why they are not in line-->
-                <!--*Second combo*-->
-                <div class="col">
-                    <div class="card about">
-                        <img src="img/" alt="Dune Cover" class="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Title: Dune</h4>
-                            <!--TODO Add dropdown menu here! and put summary text in comment-->
+                    <!--*Third combo*-->
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Ready Player One Cover" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="ready-player" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#ready-player-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            Ready Player One                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="ready-player-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#ready-player">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Ernest Cline" class="card-img-top">
+                            
+                            <div class="card-body">
+
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="ready-player" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#ready-player-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            By Ernest Cline                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="ready-player-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#ready-player">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card about">
-                        <img src="img/" alt="Frank Herbert" class="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">By Frank Herbert</h4>
-                             <!--TODO Add dropdown menu here! and put summary text in comment-->
+                    <!--*Fourth combo*-->
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Aurora Rising Cover" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="aurora-rising" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#aurora-rising-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            Aurora Rising                 
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="aurora-rising-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#aurora-rising">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="col">
+                        <div class="card about">
+                            <img src="img/" alt="Amie Kaufman and Jay Kristoff" class="card-img-top">
+                            
+                            <div class="card-body">
+
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button id="aurora-rising" class="accordion-button collapsed" 
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#aurora-rising-summary" 
+                                            aria-expanded="false" aria-controls="collapseOne">
+                                            By Amie Kaufman and Jay Kristoff               
+                                            </button>
+                                        </h2>
+                                        <!-- Book Summary -->
+                                        <div id="aurora-rising-summary" class="accordion-collapse collapse" 
+                                            aria-labelledby="headingOne" data-bs-parent="#aurora-rising">
+                                            <div class="accordion-body">
+                                                <!--TODO write summary-->
+                                              <p>Insert Summary Here!</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div> <!--end of accordion-->
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
+                </div> <!--*End of card grid-->
 
             </div>
         </section>
