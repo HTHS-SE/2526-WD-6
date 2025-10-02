@@ -9,3 +9,11 @@
 .icon-white {
     color: var(--color-bg)
 }
+
+/* Adapted from bootstrap */
+.custom-carousel-caption {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: var(--bs-body-color);
+    text-align: center;
+}
