@@ -11,9 +11,30 @@
 }
 
 /* Adapted from bootstrap */
-.custom-carousel-caption {
+.genre-carousel-caption {
     padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding: 1.25rem 1.25rem 0;
     color: var(--bs-body-color);
     text-align: center;
+}
+
+.genre-carousel-caption {
+    width: 100%;
+}
+
+
+@media (min-width: 768px) {
+    #genre-carousel .carousel-inner .carousel-item {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .genre-carousel-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .genre-carousel-caption {
+        width: 50%;
+    }
 }
