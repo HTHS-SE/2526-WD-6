@@ -40,6 +40,11 @@
 
     .genre-carousel-caption {
         width: 50%;
+    }
+}
+
+@media (min-width: 996px) {
+    .genre-carousel-caption {
         font-size: 1.5em;
     }
 }
