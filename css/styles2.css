@@ -22,6 +22,11 @@
     width: 100%;
 }
 
+.genre-carousel-img {
+    object-fit: contain;
+    width: 100%;
+}
+
 
 @media (min-width: 768px) {
     #genre-carousel .carousel-inner .carousel-item {
@@ -31,7 +36,6 @@
 
     .genre-carousel-img {
         width: 50%;
-        height: auto;
     }
 
     .genre-carousel-caption {
