@@ -10,6 +10,12 @@
     color: var(--color-bg)
 }
 
+#genre-carousel .carousel-inner {
+    /* padding: 1px; */
+    border: 3px solid var(--color-3);
+    border-radius: 5px;
+}
+
 /* Adapted from bootstrap */
 .genre-carousel-caption {
     padding-top: 1.25rem;
@@ -40,6 +46,11 @@
 
     .genre-carousel-caption {
         width: 50%;
+    }
+}
+
+@media (min-width: 996px) {
+    .genre-carousel-caption {
         font-size: 1.5em;
     }
 }
