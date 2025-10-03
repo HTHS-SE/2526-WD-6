@@ -1,6 +1,6 @@
 /* *ADDISON STYLESHEET* */
 /*primarily for index and books html pages*/
-
+/*TODO organize this eventually much needed*/
 
 /**CLASS STYLING**/
 .nb-background-color {
@@ -79,31 +79,65 @@
 }
 
 /**TIMELINE STYLING**/
+/*TODO make it resizable (line has to go all the way through somehow*/
 
-/*TODO move actual line down somehow*/
-.timeline{
+.timeline-section {
+    padding: 4rem 0;
+    border-top: 2px solid var(--color-1);
+}
+
+/*.timeline{
     position:relative;
     max-width: 1200px;
 }
 
+/* white line */
 .timeline::after{
     content: '';
     position: absolute;
     width: 6px;
+    height: 100%;
     background-color: white;
     top:0;
     bottom:0;
     left: 50%;
-    margin-left:-3px;
-    transform:translate(-50%);
+    border-radius:3px;
+    transform:translateX(-50%);
+    transform:translateY(56%)
+
 }
 .left{
     left: 0;
 }
 
+/*Adds the little arrow things*/
+.left::before {
+    content: " ";
+    position: absolute;
+    top: 22px;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
+
 .right{
     left: 50%;
 }
+
+.right::before {
+    content: " ";
+    position: absolute;
+    top: 22px;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  .right::after {
+    left:-1.5%;
+  }
 
 .timeline-item {
     padding: 10px 40px;
@@ -112,4 +146,24 @@
     opacity: 100;
 }
 
+/*Adds little dots*/
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--color-2);
+    border: 4px solid var(--color-1);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
   
