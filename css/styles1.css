@@ -5,7 +5,6 @@
 /**CLASS STYLING**/
 .nb-background-color {
     /* navbar background color */
-    /*TODO: change color*/
     background-color: var(--color-1);
 }
 
@@ -80,6 +79,7 @@
 
 /**TIMELINE STYLING**/
 /*TODO make it resizable (line has to go all the way through somehow*/
+/*TODO FIX THE TIMLINE WHY DOES IT CHANGE SIZES*/
 
 .timeline-section {
     padding: 4rem 0;
