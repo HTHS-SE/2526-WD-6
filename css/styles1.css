@@ -26,6 +26,10 @@
     height: 150px;
 }
 
+.about img{
+    height:650px;
+}
+
 :root {
     /*https://www.shecodes.io/palettes/267*/
     --color-1: #233142;
@@ -33,6 +37,8 @@
     --color-3: #f95959;
     --color-bg: #e3e3e3;
 }
+
+
 
 .container-lg {
     background: var(--color-bg);
@@ -167,3 +173,9 @@
     border-radius: 6px;
 }
   
+
+/**Accordion**/
+
+.accordion-item{
+    border-radius: 0;
+}
