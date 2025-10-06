@@ -177,5 +177,5 @@
 /**Accordion**/
 
 .accordion-item{
-    border-radius: 0;
+    --bs-accordion-border-width: 0px;
 }
