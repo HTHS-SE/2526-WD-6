@@ -35,7 +35,9 @@
 
 
 @media (min-width: 768px) {
-    #genre-carousel .carousel-inner .active {
+
+    #genre-carousel .carousel-inner .active,
+    #genre-carousel .carousel-inner .carousel-item-next {
         display: flex;
         flex-flow: row wrap;
     }
