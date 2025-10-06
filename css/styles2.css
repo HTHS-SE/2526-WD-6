@@ -55,4 +55,13 @@
     .genre-carousel-caption {
         font-size: 1.5em;
     }
+
+    #genre-description ul li {
+        font-size: 1.25em;
+    }
+
+    #genre-description p.lead {
+        font-size: 1.25em;
+        font-weight: bold;
+    }
 }
