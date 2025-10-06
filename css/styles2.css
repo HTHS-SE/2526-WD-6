@@ -10,7 +10,7 @@
     color: var(--color-bg)
 }
 
-#genre-carousel .carousel-inner {
+#genre-carousel .carousel-inner .carousel-item {
     /* padding: 1px; */
     border: 3px solid var(--color-3);
     border-radius: 5px;
