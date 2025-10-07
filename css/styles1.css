@@ -104,14 +104,14 @@
     content: '';
     position: absolute;
     width: 6px;
-    height: 1400px;
+    height: 1490px;
     background-color: white;
     top:0;
     bottom:0;
     left: 50%;
     border-radius:3px;
     transform:translateX(-50%);
-    transform:translateY(47%)
+    transform:translateY(45%)
 
 }
 .left{
