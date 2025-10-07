@@ -3,56 +3,47 @@
 /*TODO organize this eventually much needed*/
 
 /**Global**/
-    @font-face {
-        font-family: 'Spartan';
-        src: url("LeagueSpartan-Bold.otf") format("opentype");
-    }
+@font-face {
+    font-family: 'Spartan';
+    src: url("LeagueSpartan-Bold.otf") format("opentype");
+}
 
-    :root {
-        /*https://www.shecodes.io/palettes/267*/
-        --color-1: #233142;
-        --color-2: #455d7a;
-        --color-3: #f95959;
-        --color-4: #6584a9;
-        --color-bg: #e3e3e3;
-    }
+:root {
+    /*https://www.shecodes.io/palettes/267*/
+    --color-1: #233142;
+    --color-2: #455d7a;
+    --color-3: #f95959;
+    --color-4: #6584a9;
+    --color-bg: #e3e3e3;
+}
 
 /**Navbar**/
-    .nb-background-color {
-        /* navbar background color */
-        background-color: var(--color-1);
-    }
+.nb-background-color {
+    /* navbar background color */
+    background-color: var(--color-1);
+}
 
-    .nbMenuItem {
-        /* navbar link text properties */
-        font-size: 25px;
-        margin-left: 10px;
-        margin-right: 10px;
-        color: var(--color-bg);
-    }
+.nbMenuItem {
+    /* navbar link text properties */
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--color-bg);
+}
 
-    .navbar img {
-        height: 100px;
-    }
+.navbar img {
+    height: 100px;
+}
 
 /*Disorganized images*/
 .information img {
     height: 150px;
 }
 
-<<<<<<< Updated upstream
-.landing img{
-    height:300px;
-    width:auto;
-    padding-top:30px;
-=======
-.cover img {
-    height: 650px;
-    border: 3px solid var(--color-1);
+.landing img {
+    height: 300px;
     width: auto;
-    object-fit: contain;
-    padding: 1rem;
->>>>>>> Stashed changes
+    padding-top: 30px;
 }
 
 
@@ -126,16 +117,9 @@
     top: 0;
     bottom: 0;
     left: 50%;
-<<<<<<< Updated upstream
-    border-radius:3px;
-    transform:translateX(-50%);
-    transform:translateY(62%)
-
-=======
     border-radius: 3px;
     transform: translateX(-50%);
-    transform: translateY(47%)
->>>>>>> Stashed changes
+    transform: translateY(62%)
 }
 
 .left {
