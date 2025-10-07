@@ -26,8 +26,9 @@
     height: 150px;
 }
 
-.about img{
+.cover img{
     height:650px;
+    border: 3px solid var(--color-1)
 }
 
 :root {
@@ -35,6 +36,7 @@
     --color-1: #233142;
     --color-2: #455d7a;
     --color-3: #f95959;
+    --color-4: #6584a9;
     --color-bg: #e3e3e3;
 }
 
@@ -176,6 +178,23 @@
 
 /**Accordion**/
 
+/*TODO change arrows to white (and stars if possible???*/
 .accordion-item{
-    border-radius: 0;
+    --bs-accordion-border-width: 0px;
+    --bs-accordion-active-color: var(--color-bg); 
+    --bs-accordion-active-bg: var(--color-4); 
+    background-color: var(--color-4);
+    color: var(--color-bg);
+    --bs-accordion-bg: var(--color-4); 
+    --bs-accordion-btn-bg: var(--color-4); 
+    --bs-accordion-btn-color: rgb(var(--color-bg)); 
+}
+
+.accordion-item:hover{
+    --bs-accordion-btn-color: rgb(var(--color-bg));
+    --bs-accordion-btn-bg: var(--color-2);
+}
+
+.cover{
+    background-color: var(--color-2);
 }
