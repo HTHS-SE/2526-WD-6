@@ -28,7 +28,10 @@
 
 .cover img{
     height:650px;
-    border: 3px solid var(--color-1)
+    border: 3px solid var(--color-1);
+    width: auto;
+    object-fit: contain;
+    padding: 1rem;
 }
 
 :root {
