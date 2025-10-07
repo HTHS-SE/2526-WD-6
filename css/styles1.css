@@ -40,10 +40,27 @@
     height: 150px;
 }
 
+.cover img {
+    height: 650px;
+    border: 3px solid var(--color-1);
+    width: auto;
+    object-fit: contain;
+    padding: 1rem;
+}
+
 .landing img {
     height: 300px;
     width: auto;
     padding-top: 30px;
+}
+
+:root {
+    /*https://www.shecodes.io/palettes/267*/
+    --color-1: #233142;
+    --color-2: #455d7a;
+    --color-3: #f95959;
+    --color-4: #6584a9;
+    --color-bg: #e3e3e3;
 }
 
 
