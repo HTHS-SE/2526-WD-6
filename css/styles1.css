@@ -34,6 +34,12 @@
     padding: 1rem;
 }
 
+.landing img{
+    height:300px;
+    width:auto;
+    padding-top:30px;
+}
+
 :root {
     /*https://www.shecodes.io/palettes/267*/
     --color-1: #233142;
@@ -114,7 +120,7 @@
     left: 50%;
     border-radius:3px;
     transform:translateX(-50%);
-    transform:translateY(45%)
+    transform:translateY(62%)
 
 }
 .left{
