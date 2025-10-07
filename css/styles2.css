@@ -34,6 +34,20 @@
 }
 
 
+/* TODO move to styles1.css */
+.accordion-body {
+    padding-top: 0;
+}
+
+.cover img {
+    border: 3px solid var(--color-1);
+    width: 100%;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+/** END TODO */
+
 @media (min-width: 768px) {
 
     #genre-carousel .carousel-inner .active,
