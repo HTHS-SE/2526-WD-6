@@ -26,12 +26,9 @@
     height: 150px;
 }
 
-.cover img {
-    height: 650px;
-    border: 3px solid var(--color-1);
-    width: auto;
-    object-fit: contain;
-    padding: 1rem;
+.cover img{
+    height:650px;
+    border: 3px solid var(--color-1)
 }
 
 :root {
@@ -103,27 +100,21 @@
 }
 
 /* white line */
-.timeline::after {
+.timeline::after{
     content: '';
     position: absolute;
     width: 6px;
     height: 1490px;
     background-color: white;
-    top: 0;
-    bottom: 0;
+    top:0;
+    bottom:0;
     left: 50%;
-    border-radius: 3px;
-    transform: translateX(-50%);
-    transform: translateY(47%)
-}
+    border-radius:3px;
+    transform:translateX(-50%);
+    transform:translateY(45%)
 
-.left {
-    border-radius: 3px;
-    transform: translateX(-50%);
-    transform: translateY(45%)
 }
-
-.left {
+.left{
     left: 0;
 }
 
@@ -136,9 +127,9 @@
     border: medium solid white;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent white;
-}
+  }
 
-.right {
+.right{
     left: 50%;
 }
 
@@ -150,11 +141,11 @@
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent;
-}
+  }
 
-.right::after {
-    left: -1.5%;
-}
+  .right::after {
+    left:-1.5%;
+  }
 
 .timeline-item {
     padding: 10px 40px;
@@ -175,7 +166,7 @@
     top: 15px;
     border-radius: 50%;
     z-index: 1;
-}
+  }
 
 .timeline-content {
     padding: 20px 30px;
@@ -183,27 +174,27 @@
     position: relative;
     border-radius: 6px;
 }
-
+  
 
 /**Accordion**/
 
 /*TODO change arrows to white (and stars if possible???*/
-.accordion-item {
+.accordion-item{
     --bs-accordion-border-width: 0px;
-    --bs-accordion-active-color: var(--color-bg);
-    --bs-accordion-active-bg: var(--color-4);
+    --bs-accordion-active-color: var(--color-bg); 
+    --bs-accordion-active-bg: var(--color-4); 
     background-color: var(--color-4);
     color: var(--color-bg);
-    --bs-accordion-bg: var(--color-4);
-    --bs-accordion-btn-bg: var(--color-4);
-    --bs-accordion-btn-color: rgb(var(--color-bg));
+    --bs-accordion-bg: var(--color-4); 
+    --bs-accordion-btn-bg: var(--color-4); 
+    --bs-accordion-btn-color: rgb(var(--color-bg)); 
 }
 
-.accordion-item:hover {
+.accordion-item:hover{
     --bs-accordion-btn-color: rgb(var(--color-bg));
     --bs-accordion-btn-bg: var(--color-2);
 }
 
-.cover {
+.cover{
     background-color: var(--color-2);
 }
