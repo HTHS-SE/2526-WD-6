@@ -181,6 +181,26 @@
         border-radius: 6px;
     }
 
+    @media (max-width: 750px){
+        .right{
+            left: 0;
+        }
+        .timeline::after{
+            left:95%;
+        }
+        .right::before{
+            right:30px;
+            left:0;
+
+        }
+        .timeline-item{
+            width:100%
+        }
+        .right::after{
+            left:0 !important;
+        }
+    }
+
 
 /**Accordion (books.html)**/
 
