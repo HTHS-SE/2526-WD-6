@@ -34,6 +34,7 @@
 }
 
 
+/* ! Move to styles1.css when possible */
 .cover img {
     border: 3px solid var(--color-1);
     width: 100%;
@@ -41,7 +42,7 @@
     padding: 1rem;
 }
 
-.the-authors img{
+.the-authors img {
     height: 500px;
 }
 
@@ -50,6 +51,7 @@
 @media (min-width: 768px) {
 
     #genre-carousel .carousel-inner .active,
+    #genre-carousel .carousel-inner .carousel-item-prev,
     #genre-carousel .carousel-inner .carousel-item-next {
         display: flex;
         flex-flow: row wrap;
