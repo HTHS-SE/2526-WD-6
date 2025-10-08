@@ -8,6 +8,9 @@
         src: url("LeagueSpartan-Bold.otf") format("opentype");
     }
 
+    body{
+        font-family:Spartan;
+    }
     :root {
         /*https://www.shecodes.io/palettes/267*/
         --color-1: #233142;
@@ -39,7 +42,7 @@
         height: 100px;
     }
 
-/*What is Science Fiction?*/
+/**What is Science Fiction?*/
 .landing img {
     height: 300px;
     width: auto;
@@ -110,7 +113,7 @@
         left: 50%;
         border-radius: 3px;
         transform: translateX(-50%);
-        transform: translateY(62%)
+        transform: translateY(59%)
     }
 
     .left {
@@ -179,21 +182,29 @@
 
 /*TODO change arrows to white (and stars if possible???*/
     .accordion-item {
+        --bs-accordion-btn-color: var(--color-bg); /*Text color for accordion header*/
+        --bs-accordion-btn-bg: var(--color-4); /*Background color for accordion header*/
+
+        --bs-accordion-active-color: var(--color-bg); /*Text color for accordion header when opened*/
+        --bs-accordion-active-bg: var(--color-4); /*Background color for accordion header when opened*/
+
+        color: var(--color-bg); /*Text color for accordion paragraph text*/
+        background-color: var(--color-4); /*Background color for accordion paragraph text*/
+
+        font-family: Spartan;
         --bs-accordion-border-width: 0px;
-        --bs-accordion-active-color: var(--color-bg);
-        --bs-accordion-active-bg: var(--color-4);
-        background-color: var(--color-4);
-        color: var(--color-bg);
-        --bs-accordion-bg: var(--color-4);
-        --bs-accordion-btn-bg: var(--color-4);
-        --bs-accordion-btn-color: rgb(var(--color-bg));
     }
 
     .accordion-item:hover {
-        --bs-accordion-btn-color: rgb(var(--color-bg));
-        --bs-accordion-btn-bg: var(--color-2);
+        --bs-accordion-btn-bg: var(--color-2); /*Background color for accordion header when hovered*/
     }
 
     .cover {
         background-color: var(--color-2);
+    }
+
+    
+
+    .accordion-body{
+        padding-top: 0;
     }
