@@ -24,6 +24,10 @@
         background: var(--color-bg);
     }
 
+    a {
+        color: var(--color-2);
+    }
+
 /**Navbar**/
     .nb-background-color {
         /* navbar background color */
