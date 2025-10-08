@@ -5,7 +5,7 @@
 /**Global**/
     @font-face {
         font-family: 'Spartan';
-        src: url("LeagueSpartan-Bold.otf") format("opentype");
+        src: url("LeagueSpartan.otf") format("opentype");
     }
 
     body{
