@@ -1,5 +1,6 @@
 .about img {
-    border: 3px solid var(--color-3)
+    border: 3px solid var(--color-3);
+    object-fit: contain;
 }
 
 .footer {
@@ -42,9 +43,6 @@
     padding: 1rem;
 }
 
-.the-authors img {
-    height: 500px;
-}
 
 /** END TODO */
 
