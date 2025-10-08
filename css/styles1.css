@@ -3,14 +3,11 @@
 /*TODO organize this eventually much needed*/
 
 /**Global**/
-    @font-face {
-        font-family: 'Spartan';
-        src: url("LeagueSpartan.otf") format("opentype");
+    body {
+        font-family: "League Spartan", Arial, Helvetica, sans-serif;
+        font-optical-sizing: auto;
     }
 
-    body{
-        font-family:Spartan;
-    }
     :root {
         /*https://www.shecodes.io/palettes/267*/
         --color-1: #233142;
@@ -215,7 +212,6 @@
         color: var(--color-bg); /*Text color for accordion paragraph text*/
         background-color: var(--color-4); /*Background color for accordion paragraph text*/
 
-        font-family: Spartan;
         --bs-accordion-border-width: 0px;
     }
 
