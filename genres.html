@@ -74,16 +74,37 @@
 
         <!--*Index*-->
         <section id="genre-description" class="container px-5">
-            <p class="lead mb-0">As one of the largest genres, sci-fi has a lot of subgenres, including:</p>
-            <ul>
-                <li><a href="#genre-carousel" data-bs-slide-to="0">Apocalyptic/Post Apocalyptic</a></li>
-                <li><a href="#genre-carousel" data-bs-slide-to="1">Biopunk</a></li>
-                <li><a href="#genre-carousel" data-bs-slide-to="2">Cyberpunk</a></li>
-                <li><a href="#genre-carousel" data-bs-slide-to="3">Dystopian</a></li>
-                <li><a href="#genre-carousel" data-bs-slide-to="4">Sci-fi Horror</a></li>
-                <li><a href="#genre-carousel" data-bs-slide-to="5">Time Travel</a></li>
-            </ul>
+            <div id="genre-accordion" class="accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button id="genre-index-button" class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#genre-index" aria-expanded="false"
+                            aria-controls="collapseOne">
+                            <p class="lead mb-0">As one of the largest genres, sci-fi has a lot of
+                                subgenres, including:</p>
+                        </button>
+                    </h2>
+                    <!-- Book Summary -->
+                    <!--data-bs-parent tells the accordion where to connect-->
+                    <div id="genre-index" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#genre-index-button">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><a href="#genre-carousel" data-bs-slide-to="0">Apocalyptic/Post Apocalyptic</a></li>
+                                <li><a href="#genre-carousel" data-bs-slide-to="1">Biopunk</a></li>
+                                <li><a href="#genre-carousel" data-bs-slide-to="2">Cyberpunk</a></li>
+                                <li><a href="#genre-carousel" data-bs-slide-to="3">Dystopian</a></li>
+                                <li><a href="#genre-carousel" data-bs-slide-to="4">Sci-fi Horror</a></li>
+                                <li><a href="#genre-carousel" data-bs-slide-to="5">Time Travel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!--end of accordion-->
         </section>
+
+        <br><br>
 
         <!--*Genre Carousel*-->
         <section>
