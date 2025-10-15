@@ -78,8 +78,13 @@
     padding: 1rem;
 }
 
+/* force all images to maintain aspect ratio */
+img {
+    object-fit: contain;
+}
 
-/** END TODO */
+
+/*! END TODO */
 
 /* *Media queries for genres.html* */
 @media (min-width: 768px) {
