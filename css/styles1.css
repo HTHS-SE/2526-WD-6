@@ -1,5 +1,4 @@
-/* *ADDISON STYLESHEET* */
-/*primarily for index and books html pages*/
+/*Stylesheet for index and books html pages*/
 
 /**Global**/
     body {
@@ -14,14 +13,6 @@
         --color-3: #f95959;
         --color-4: #6584a9;
         --color-bg: #e3e3e3;
-    }
-
-    .container-fluid {
-        background: var(--color-bg);
-    }
-
-    a {
-        color: var(--color-2);
     }
 
     .container-lg {
@@ -50,12 +41,12 @@
         height: 100px;
     }
 
-/**What is Science Fiction?*/
-.landing img {
-    height: 300px;
-    width: auto;
-    padding-top: 30px;
-}
+/**What is Science Fiction? (index.html)*/
+    .landing img {
+        height: 300px;
+        width: auto;
+        padding-top: 30px;
+    }
 
 
 /**Underline Animations**/
@@ -84,14 +75,15 @@
     }
 
 
-/**The Timelines...**/
+/**The Timeline (index.html)**/
 
-
+/*overall styling*/
 .timeline-section {
     padding: 4rem 0;
     border-top: 2px solid var(--color-1);
 }
 
+/*overall styling*/
 .timeline {
     position: relative;
     max-width: 1200px;
@@ -99,6 +91,7 @@
     padding: 2rem 0;
 }
 
+/*creates the white line*/
 .timeline::after {
     content: '';
     position: absolute;
@@ -111,6 +104,7 @@
     border-radius: 3px;
 }
 
+/*specific items within timeline*/
 .timeline-item {
     padding: 10px 40px;
     position: relative;
@@ -119,15 +113,15 @@
     opacity: 1;
 }
 
-
+/*adds padding to make timeline elements alternate sides*/
 .left {
     left: 0;
 }
-
 .right {
     left: 50%;
 }
 
+/*places content within each itme*/
 .timeline-content {
     padding: 20px 30px;
     background-color: white;
@@ -135,6 +129,7 @@
     border-radius: 6px;
 }
 
+/*adds and styles small dots to timeline*/
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -148,14 +143,15 @@
     z-index: 1;
 }
 
+/*adjusts positioning of dots for left and right items*/
 .left::after {
     right: -12.5px;
 }
-
 .right::after {
     left: -12.5px;
 }
 
+/*adds small arrows to left and right items*/
 .left::before {
     content: " ";
     position: absolute;
@@ -165,7 +161,6 @@
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent white;
 }
-
 .right::before {
     content: " ";
     position: absolute;
@@ -176,6 +171,7 @@
     border-color: transparent white transparent transparent;
 }
 
+/*adjusts timeline aspects for smaller widths*/
 @media (max-width: 990px){
     .timeline-item{
         width:70%;
@@ -200,6 +196,7 @@
         content: " ";
         position: absolute;
         top: 22px;
+        left: 0;
         border: medium solid white;
         border-width: 10px 0 10px 10px;
         border-color: transparent transparent transparent white;
