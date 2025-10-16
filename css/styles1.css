@@ -64,7 +64,7 @@
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: #023E8A;
+        background-color:var(--color-bg);
         /*transform-origin: bottom right;*/
         transition: transform 0.35s ease-out;
     }
@@ -239,6 +239,11 @@
         padding-top: 0;
     }
 
+    /*.accordion-item .accordion-button::after{
+        background-image: url(/img/white-star.png);
+     }
+     */
+     
 
 /**Footer**/
     #scroll-up-arrow {
