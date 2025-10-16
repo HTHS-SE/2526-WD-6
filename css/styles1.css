@@ -212,8 +212,6 @@
 
 
 /**Accordion (books.html)**/
-
-/*TODO change arrows to white (and stars if possible???*/
     .accordion-item {
         --bs-accordion-btn-color: var(--color-bg); /*Text color for accordion header*/
         --bs-accordion-btn-bg: var(--color-4); /*Background color for accordion header*/
