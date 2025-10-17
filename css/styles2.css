@@ -45,7 +45,7 @@
     background-color: #0000;
 }
 
-/* Index */
+/* Index of Genres */
 #genre-index-button {
     background-color: #0000;
     color: var(--bs-body-color);
@@ -68,23 +68,6 @@
     padding-bottom: 0;
     margin-bottom: 0;
 }
-
-/* *books.html* */
-/* ! Move to styles1.css when possible */
-.cover img {
-    border: 3px solid var(--color-1);
-    width: 100%;
-    object-fit: contain;
-    padding: 1rem;
-}
-
-/* force all images to maintain aspect ratio */
-img {
-    object-fit: contain;
-}
-
-
-/*! END TODO */
 
 /* *Media queries for genres.html* */
 @media (min-width: 768px) {

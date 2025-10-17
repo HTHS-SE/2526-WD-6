@@ -23,6 +23,10 @@
         color: var(--color-2);
     }
 
+    /* force all images to maintain aspect ratio */
+    img {
+        object-fit: contain;
+    }
 /**Navbar**/
     .nb-background-color {
         /* navbar background color */
@@ -209,6 +213,13 @@
     }
 }
 
+/* *books.html* */
+.cover img {
+    border: 3px solid var(--color-1);
+    width: 100%;
+    object-fit: contain;
+    padding: 1rem;
+}
 
 
 /**Accordion (books.html)**/
