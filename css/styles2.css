@@ -1,3 +1,7 @@
+/* *signUp.html* */
+#submitData:hover {
+    background-color: var(--color-1);
+}
 /* *Footer* */
 .footer {
     background-color: var(--color-2);
