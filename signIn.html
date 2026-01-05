@@ -59,7 +59,6 @@
                         <li class="nav-item">
                             <a href="about.html" class="nav-link hover-underline-animation nbMenuItem">About Us</a>
                         </li>
-
                         <li class="nav-item">
                             <a href="signIn.html" class="nav-link hover-underline-animation nbMenuItem">Log In</a>
                         </li>
@@ -73,15 +72,18 @@
             <div class="container">
                 <h1 class="text-center m-5 display-4 pheader">Sign Up!</h1>
                 <div class="signUpForm m-5">
+                    <!--Sign Up -->
                     <form>
-                        <input type="text" placeholder="First Name" id="firstName" class="form-control mb-3">
-                        <input type="text" placeholder="Last Name" id="lastName" class="form-control mb-3">
-                        <input type="email" placeholder="Email" id="userEmail" class="form-control mb-3">
-                        <input type="password" placeholder="password" id="userPass" class="form-control mb-3">
-                        <button type="button" id="submitData" name="submitData"
-                            class="btn btn-outline-primary mb-3 w-100">Register</button>
-                        <a href="signIn.html" class="badge bg-secondary py-1 w-100">
-                            <p class="fs-6 m-1">Already have an account?</p>
+                        <input type="email" placeholder="Email" id="loginEmail" class="form-control mb-3">
+                        <input type="password" placeholder="password" id="loginPassword" class="form-control mb-3">
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="keepLoggedInSwitch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Keep me signed in</label>
+                        </div>
+                        <button type="button" id="signUp" name="signUp" class="btn btn-outline-primary mb-3 w-100">Sign
+                            In</button>
+                        <a href="signUp.html" class="badge bg-secondary py-1 w-100">
+                            <p class="fs-6 m-1">Don't have an account?</p>
                         </a>
                     </form>
                 </div>
