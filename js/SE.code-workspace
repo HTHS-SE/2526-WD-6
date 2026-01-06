@@ -1,13 +1,15 @@
 {
-	"folders": [
-		{
-			"path": "../../vincelli-se-2526/3-2-firebase"
-		},
-		{
-			"path": ".."
-		}
-	],
-	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "2526-WD-6"
-	}
+    "folders": [
+        {
+            "name": "3-2-firebase",
+            "path": "../../vincelli-se-2526/3-2-firebase"
+        },
+        {
+            "name": "2526-WD-6",
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "2526-WD-6"
+    }
 }

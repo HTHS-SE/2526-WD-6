@@ -68,7 +68,7 @@ function SignOutUser(){
     //Error occurred 
   });
 
-  window.location = 'home.html'
+  window.location = 'user.html'
 }
 
 
@@ -210,7 +210,7 @@ window.onload = function(){
     userLink.innerText = "Create New Account";
     userLink.classList.replace("nav-link", "btn");
     userLink.classList.add("btn-primary");
-    userLink.href = "register.html";
+    userLink.href = "signUp.html";
 
     signOutLink.innerText  = "Sign In";
     signOutLink.classList.replace("nav-link", "btn");

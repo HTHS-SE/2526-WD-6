@@ -1,4 +1,3 @@
-<!--*Addison-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +84,7 @@
                     <h2 class="strong overview-front ovPadRight">Log a read</h2>
                     <form>
                         <p>From:</p>
-                        <select class="form-select mb-3" aria-label="Default select example" id="month">
+                        <select class="form-select mb-3" aria-label="Default select example" id="startMonth">
                             <option selected>Month</option>
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>
@@ -100,7 +99,7 @@
                             <option value="Nov">Nov</option>
                             <option value="Dec">Dec</option>
                         </select>
-                        <select class="form-select mb-3" aria-label="Default select example" id="day">
+                        <select class="form-select mb-3" aria-label="Default select example" id="startDay">
                             <option selected>Day</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -134,9 +133,9 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <input class="form-control mb-3" id="year" placeholder="Year">
+                        <input class="form-control mb-3" id="startYear" placeholder="Year">
                         <p>To:</p>
-                        <select class="form-select mb-3" aria-label="Default select example" id="month">
+                        <select class="form-select mb-3" aria-label="Default select example" id="endMonth">
                             <option selected>Month</option>
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>
@@ -151,7 +150,7 @@
                             <option value="Nov">Nov</option>
                             <option value="Dec">Dec</option>
                         </select>
-                        <select class="form-select mb-3" aria-label="Default select example" id="day">
+                        <select class="form-select mb-3" aria-label="Default select example" id="endDay">
                             <option selected>Day</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -185,7 +184,7 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <input class="form-control mb-3" id="year" placeholder="Year">
+                        <input class="form-control mb-3" id="endYear" placeholder="Year">
 
                         <input type="text" class="form-control mb-3" id="book" placeholder="Book">
                         <button type="button" id="update" name="update"
@@ -198,7 +197,7 @@
                     <!--* Get Data Point-->
                     <h2 class="strong overview-front ovPadRight">When did I read this book?</h2>
                     <form>
-                        <input type="text" class="form-control mb-3" id="book" placeholder="Book">
+                        <input type="text" class="form-control mb-3" id="getBook" placeholder="Book">
                         <button type="button" id="get" name="get" class="btn btn-outline-primary mb-3 w-100">Get
                             Dates</button>
                     </form>
@@ -208,7 +207,7 @@
                     <!--* Get Data Set-->
                     <h2 class="strong overview-front ovPadRight">What did I read this month?</h2>
                     <form>
-                        <select class="form-select mb-3" aria-label="Default select example" id="month">
+                        <select class="form-select mb-3" aria-label="Default select example" id="getSetMonth">
                             <option selected>Month</option>
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>
@@ -223,7 +222,7 @@
                             <option value="Nov">Nov</option>
                             <option value="Dec">Dec</option>
                         </select>
-                        <input class="form-control mb-3" id="year" placeholder="Year">
+                        <input class="form-control mb-3" id="getSetYear" placeholder="Year">
                         <button type="button" id="get" name="get" class="btn btn-outline-primary mb-3 w-100">Get
                             books</button>
                     </form>
