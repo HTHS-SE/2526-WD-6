@@ -4,7 +4,7 @@
 }
 /* *sign in pages* */
 .sign-in,
-.sign-out {
+.sign-up {
     width: max(50%, 480px);
     margin: 0 auto;
 }
