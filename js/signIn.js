@@ -84,3 +84,25 @@ document.getElementById('signIn').onclick = function(){
         alert(errorMessage);
     });
 }
+
+// ---------------- Keep User Logged In ----------------------------------//
+function logIn(user){
+    let keepLoggedIn = document.getElementById('keepLoggedInSwitch').checked;
+
+    //Session storage is temporary (only while browser is open)
+    //Info saved as a string (must convert JS object to string)
+    //Session storage will be cleared with a signOut() function in home.js
+    if(!keepLoggedIn){
+        sessionStorage.setItem('user', JSON.stringify(user));
+        window.location="home.html";       //Redirect browser to home.html
+    }
+
+    //Local storage is permanent (keep user logged in even if browser is closed)
+    //Local storage will be cleared with signOut() function in home.js
+    else{
+        localStorage.setItem('keepLoggedIn', 'yes')
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location='home.html';
+    }
+}
+
