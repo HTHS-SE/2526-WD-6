@@ -11,9 +11,6 @@
 import {getDatabase, ref, set, update, child, get}
  from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
 
- // TODO: Add SDKs for Firebase products that you want to use
- // https://firebase.google.com/docs/web/setup#available-libraries
-
  // Your web app's Firebase configuration
  const firebaseConfig = {
    apiKey: "AIzaSyCptQUzhXL4nLiRxvEuhuINLKRRfuKK4zY",
@@ -41,7 +38,6 @@ document.getElementById('submitData').onclick = function(){
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('userEmail').value;
   
-    //Firebase will require a password of at least 6 characters 
     const password = document.getElementById('userPass').value;
   
     //Validate user inputs
