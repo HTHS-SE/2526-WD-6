@@ -2,6 +2,12 @@
 #submitData:hover {
     background-color: var(--color-1);
 }
+/* *sign in pages* */
+.sign-in,
+.sign-out {
+    width: max(50%, 480px);
+    margin: 0 auto;
+}
 /* *Footer* */
 .footer {
     background-color: var(--color-2);
