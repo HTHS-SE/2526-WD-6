@@ -1,4 +1,4 @@
-// This JS file is for viewing and logging data after Sign-In ------------------//
+// This JS file is for viewing and logging data after Sign-In -----------------//
 
  // ----------------- Firebase Setup & Initialization ------------------------//
 
@@ -68,15 +68,15 @@ function SignOutUser(){
     //Error occurred 
   });
 
-  window.location = 'home.html' //TODO fix link
+  window.location = 'home.html'
 }
 
 
 // ------------------------Set (insert) data into FRD ------------------------
 function setData(userID, year, month, day, temperature){
   //Must use brackets around variable names to use as a key
-  set(ref(db, 'users/' + userID + '/data/' + year),{
-    [month]: book
+  set(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
+    [day]: temperature
   })
   .then(()=>{
     alert("Data stored successfully :D");
@@ -89,8 +89,8 @@ function setData(userID, year, month, day, temperature){
 // -------------------------Update data in database --------------------------
 function updateData(userID, year, month, day, temperature){
   //Must use brackets around variable names to use as a key
-  update(ref(db, 'users/' + userID + '/data/' + year),{
-    [month]: book
+  update(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
+    [day]: temperature
   })
   .then(()=>{
     alert("Data stored successfully :D");
@@ -100,10 +100,11 @@ function updateData(userID, year, month, day, temperature){
   })
 }
 // ----------------------Get a datum from FRD (single data point)---------------
-function getData(userID, year, month, book){
+function getData(userID, year, month, day){
   let yearVal = document.getElementById('yearVal')
   let monthVal = document.getElementById('monthVal')
-  let bookVal = document.getElementById('bookVal')
+  let dayVal = document.getElementById('dayVal')
+  let tempVal = document.getElementById('tempVal')
 
   const dbref = ref(db)
 
@@ -112,12 +113,12 @@ function getData(userID, year, month, book){
       if(snapshot.exists()){
         yearVal.textContent = year
         monthVal.textContent = month
-        bookVal.textContent = book
+        dayVal.textContent = day
 
         //to get a value from a snapshot: snapshot.val()[key]
-        tempVal.textContent = snapshot.val()[month]
+        tempVal.textContent = snapshot.val()[day]
       }else{
-        alert('No data found for this month')
+        alert('No data found for this day')
     }
 
   }).catch((err)=> alert("Unsucessful" + err))
@@ -136,8 +137,8 @@ async function getDataSet(userID, year, month){
   yearVal.textContent = `Year: ${year}`
   monthVal.textContent = `Month: ${month}`
 
-  const months = [];
-  const books = [];
+  const days = [];
+  const temps = [];
   const tbodyEl = document.getElementById('tbody-2'); //Select <tbody> element
 
   const dbref = ref(db);  //Firebase parameter to access database
@@ -152,8 +153,8 @@ async function getDataSet(userID, year, month){
       snapshot.forEach(child => {
         console.log(child.key, child.val())
         //Push values to corresponding arrays
-        months.push(child.key)
-        books.push(child.val())
+        days.push(child.key)
+        temps.push(child.val())
       })
     }
     else{
@@ -166,20 +167,20 @@ async function getDataSet(userID, year, month){
 
   //Dynamically add table rows to HTML using string interpolation
   tbodyEl.innerHTML = '' //Clear any existing table
-  for(let i = 0; i<months.length; i++){
-    addItemToTable(months[i], books[i], tbodyEl)
+  for(let i = 0; i<days.length; i++){
+    addItemToTable(days[i], temps[i], tbodyEl)
   }
 }
 
 // Add a item to the table of data
-function addItemToTable(month, book, tbody){
-  console.log(month, book)
+function addItemToTable(day, temp, tbody){
+  console.log(day, temp)
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
 
-  td1.innerHTML = month;
-  td2.innerHTML = book
+  td1.innerHTML = day;
+  td2.innerHTML = temp
 
   tRow.appendChild(td1)
   tRow.appendChild(td2)
@@ -189,8 +190,8 @@ function addItemToTable(month, book, tbody){
 
 
 // -------------------------Delete a day's data from FRD ---------------------
-function deleteData(userID, year, month, book){
-  remove(ref(db, 'users/' + userID + '/data/' + year + '/' + month + '/' + book))
+function deleteData(userID, year, month, day){
+  remove(ref(db, 'users/' + userID + '/data/' + year + '/' + month + '/' + day))
   .then(()=>{
     alert('data removed successfully :D')
   })
@@ -236,30 +237,32 @@ window.onload = function(){
   document.getElementById('set').onclick = function(){
     const year = document.getElementById('year').value;
     const month = document.getElementById('month').value;
+    const day = document.getElementById('day').value;
     const book = document.getElementById('book').value;
     const userID = currentUser.uid;
 
-    setData(userID, year, month, book);
+    setData(userID, year, month, day, book);
   };
 
   // Update data function call
   document.getElementById('update').onclick = function(){
     const year = document.getElementById('year').value;
     const month = document.getElementById('month').value;
+    const day = document.getElementById('day').value;
     const book = document.getElementById('book').value;
     const userID = currentUser.uid;
 
-    updateData(userID, year, month, book);
+    updateData(userID, year, month, day, book);
   };
 
   // Get a datum function call
   document.getElementById('get').onclick = function(){
     const year = document.getElementById('getYear').value;
     const month = document.getElementById('getMonth').value;
-    const day = document.getElementById('getBook').value;
+    const day = document.getElementById('getDay').value;
     const userID = currentUser.uid;
 
-    getData(userID, year, month, book);
+    getData(userID, year, month, day);
   };
 
   // Get a data set function call
@@ -276,10 +279,10 @@ window.onload = function(){
 
     const year = document.getElementById('delYear').value
     const month = document.getElementById('delMonth').value
-    const book = document.getElementById('delBook').value
+    const day = document.getElementById('delDay').value
     const userID = currentUser.uid
 
-    deleteData(userID, year, month, book)
+    deleteData(userID, year, month, day)
 
   }
   
