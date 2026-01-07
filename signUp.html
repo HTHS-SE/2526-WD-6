@@ -32,41 +32,43 @@
 
         <!--*Navbar*-->
         <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
-
-            <!--LG means large breakpoint for resizing, navbar-dark means dark bar light text-->
+            <!--NOTE defaults to logged in state -->
             <div class="container">
+                <!-- Logo -->
                 <a href="index.html" class="navbar-brand">
                     <img src="img/logo.png" alt="Science Fiction Logo" class="d-inline-block psize">
                 </a>
-
                 <!--Hamburger Menu Button-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <!--Collapsable Navbar Menu w/ Hover Underline-->
+                <!-- Reading Log Link -->
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <!--Links to menu button-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="reading-log-link" href="user.html" class="nav-link hover-underline-animation nbMenuItem">Reading Log</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Rest of the navbar -->
                 <div class="collapse navbar-collapse" id="navmenu">
                     <!--Links to menu button-->
                     <ul class="navbar-nav ms-auto">
-
                         <li class="nav-item">
                             <a href="index.html" class="nav-link hover-underline-animation nbMenuItem">Showcase</a>
                         </li>
-
                         <li class="nav-item">
                             <a href="books.html" class="nav-link hover-underline-animation nbMenuItem">Books/Authors</a>
                         </li>
-
                         <li class="nav-item">
                             <a href="genres.html" class="nav-link hover-underline-animation nbMenuItem">Subgenres</a>
                         </li>
-
                         <li class="nav-item">
                             <a href="about.html" class="nav-link hover-underline-animation nbMenuItem">About Us</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="signIn.html" class="nav-link hover-underline-animation nbMenuItem">Log In</a>
+                            <a id="sign-in-out-link" class="nav-link hover-underline-animation nbMenuItem">Log Out</a>
                         </li>
                     </ul>
                 </div>
