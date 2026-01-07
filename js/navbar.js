@@ -57,11 +57,13 @@ function signOutUser() {
 window.onload = function () {
     getUserFromCookies()
     let userLink = document.getElementById('reading-log-link')
-    let logInLink = document.getElementById('sign-in-out-link')
+    let signInOutLink = document.getElementById('sign-in-out-link')
     if (currentUser == null) {
         userLink.parentElement.parentElement.style.display = 'none'
+        signInOutLink.innerText = 'Log in'
+        signInOutLink.href = 'signIn.html'
     } else {
-        logInLink.innerText = 'Log Out'
-        logInLink.onclick = signOutUser
+        signInOutLink.innerText = 'Log Out'
+        signInOutLink.onclick = signOutUser
     }
 }
