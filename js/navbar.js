@@ -6,17 +6,6 @@ import {
     signOut,
 } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
 
-import {
-    getDatabase,
-    ref,
-    set,
-    update,
-    child,
-    get,
-} from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -34,9 +23,6 @@ const app = initializeApp(firebaseConfig)
 
 //Initialize Firebase Authentication
 const auth = getAuth()
-
-//Return instance of your app's Firebase Realtime Database (FRD)
-const db = getDatabase(app)
 
 let currentUser = null
 
@@ -66,6 +52,7 @@ function signOutUser() {
     } else {
         window.location.reload()
     }
+    console.log('reloading!')
 }
 
 window.onload = function () {
