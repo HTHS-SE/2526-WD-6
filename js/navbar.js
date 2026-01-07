@@ -1,3 +1,43 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
+
+import {
+    getAuth,
+    signOut,
+} from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
+
+import {
+    getDatabase,
+    ref,
+    set,
+    update,
+    child,
+    get,
+} from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: 'AIzaSyCptQUzhXL4nLiRxvEuhuINLKRRfuKK4zY',
+    authDomain: 'sci-fi-showcase.firebaseapp.com',
+    databaseURL: 'https://sci-fi-showcase-default-rtdb.firebaseio.com',
+    projectId: 'sci-fi-showcase',
+    storageBucket: 'sci-fi-showcase.firebasestorage.app',
+    messagingSenderId: '794618128894',
+    appId: '1:794618128894:web:216c3d0b1fee81e4b538af',
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+
+//Initialize Firebase Authentication
+const auth = getAuth()
+
+//Return instance of your app's Firebase Realtime Database (FRD)
+const db = getDatabase(app)
+
 let currentUser = null
 
 // ----------------------- Get User's Name'Name ------------------------------
