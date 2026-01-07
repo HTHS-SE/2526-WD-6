@@ -204,7 +204,7 @@ function deleteData(userID, year, month, day){
 // --------------------------- Home Page Loading -----------------------------
 window.onload = function(){
 
-  // ------------------------- Set Welcome Message -------------------------
+  /* ------------------------- Set Welcome Message -------------------------
   getUsername();  //Get current user's first name
   if(currentUser == null){
     userLink.innerText = "Create New Account";
@@ -230,7 +230,7 @@ window.onload = function(){
     this.document.getElementById('signOut').onclick = function(){
       SignOutUser();
     }
-  }
+  }*/
   
   // Get, Set, Update, Delete Data in FRD
   // Set (Insert) data function call
