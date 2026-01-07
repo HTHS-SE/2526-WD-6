@@ -21,25 +21,25 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
-//Initialize Firebase Authentication
+// Initialize Firebase Authentication
 const auth = getAuth()
 
 let currentUser = null
 
-// ----------------------- Get User's Name'Name ------------------------------
+// ----------------------- Get User's Name ------------------------------
 function getUserFromCookies() {
     // Grab value for the `keep logged in` switch
     let keepLoggedIn = localStorage.getItem('keepLoggedIn')
 
-    // Grab user information passed from signIn.js
+    // Grab user information passed from signIn.js by cookies
     if (keepLoggedIn == 'yes') {
         currentUser = JSON.parse(localStorage.getItem('user'))
     } else {
         currentUser = JSON.parse(sessionStorage.getItem('user'))
     }
 }
-// Sign-out function that will remove user info from local/session storage and
-// sign-out from FRD
+// Sign-out function that will remove user info from local/session storage
+// and sign-out from Firebase
 function signOutUser() {
     sessionStorage.removeItem('user')
     localStorage.removeItem('user')
@@ -51,15 +51,15 @@ function signOutUser() {
     } else {
         window.location.reload()
     }
-    console.log('reloading!')
 }
 
 window.onload = function () {
     getUserFromCookies()
     let userLink = document.getElementById('reading-log-link')
     let signInOutLink = document.getElementById('sign-in-out-link')
+
     if (currentUser == null) {
-        userLink.parentElement.parentElement.style.display = 'none'
+        userLink.parentElement.parentElement.style.display = 'none' // hide userLink
         signInOutLink.innerText = 'Log in'
         signInOutLink.href = 'signIn.html'
     } else {
