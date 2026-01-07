@@ -51,6 +51,7 @@ function getUserFromCookies() {
     } else {
         currentUser = JSON.parse(sessionStorage.getItem('user'))
     }
+    console.log(currentUser)
 }
 // Sign-out function that will remove user info from local/session storage and
 // sign-out from FRD
@@ -69,30 +70,12 @@ function signOutUser() {
 
 window.onload = function () {
     getUserFromCookies()
-    let userLink = document.querySelector('a[href="user.html"]')
-    let logInLink = null
+    let userLink = document.getElementById('reading-log-link')
+    let logInLink = document.getElementById('sign-in-out-link')
     if (currentUser == null) {
-        userLink.innerText = 'Create New Account'
-        userLink.classList.replace('nav-link', 'btn')
-        userLink.classList.add('btn-primary')
-        userLink.href = 'register.html'
-
-        logInLink.innerText = 'Sign In'
-        logInLink.innerText = 'Sign In'
-        logInLink.classList.replace('nav-link', 'btn')
-        logInLink.classList.add('btn-success')
-        logInLink.href = 'signIn.html'
         userLink.parentElement.parentElement.style.display = 'none'
     } else {
-        userLink.innerText = currentUser.firstName
-        welcome.innerText = 'Welcome ' + currentUser.firstName
-        userLink.classList.replace('btn', 'nav-link')
-        userLink.classList.add('btn-primary')
-        userLink.href = '#'
-
-        logInLink.innerText = 'Sign Out'
-        logInLink.classList.replace('btn', 'nav-link')
-        logInLink.classList.add('btn-success')
-        document.getElementById('signOut').onclick = signOutUser
+        logInLink.innerText = 'Log Out'
+        logInLink.onclick = signOutUser
     }
 }
