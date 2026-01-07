@@ -83,6 +83,7 @@
                     <!--* Submit Data-->
                     <h2 class="strong overview-front ovPadRight">Log a read</h2>
                     <form>
+                        <!---
                         <p>From:</p>
                         <select class="form-select mb-3" aria-label="Default select example" id="startMonth">
                             <option selected>Month</option>
@@ -134,8 +135,8 @@
                             <option value="31">31</option>
                         </select>
                         <input class="form-control mb-3" id="startYear" placeholder="Year">
-                        <p>To:</p>
-                        <select class="form-select mb-3" aria-label="Default select example" id="endMonth">
+                    -->
+                        <select class="form-select mb-3" aria-label="Default select example" id="month">
                             <option selected>Month</option>
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>
@@ -150,7 +151,7 @@
                             <option value="Nov">Nov</option>
                             <option value="Dec">Dec</option>
                         </select>
-                        <select class="form-select mb-3" aria-label="Default select example" id="endDay">
+                        <select class="form-select mb-3" aria-label="Default select example" id="day">
                             <option selected>Day</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -184,13 +185,15 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <input class="form-control mb-3" id="endYear" placeholder="Year">
+                        <input class="form-control mb-3" id="year" placeholder="Year">
 
                         <input type="text" class="form-control mb-3" id="book" placeholder="Book">
+                       
+                        <!--Button will use update function to log data-->
                         <button type="button" id="update" name="update"
-                            class="btn btn-outline-primary mb-3 w-100">Update</button>
-                        <button type="button" id="set" name="set"
-                            class="btn btn-outline-secondary mb-3 w-100">Set</button>
+                            class="btn btn-outline-primary mb-3 w-100">Log</button>
+                        <!--<button type="button" id="set" name="set"
+                            class="btn btn-outline-secondary mb-3 w-100">Set</button>-->
                     </form>
                     <br>
 

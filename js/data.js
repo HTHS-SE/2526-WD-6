@@ -73,10 +73,10 @@ function SignOutUser(){
 
 
 // ------------------------Set (insert) data into FRD ------------------------
-function setData(userID, year, month, day, temperature){
+function setData(userID, year, month, day, book){
   //Must use brackets around variable names to use as a key
   set(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
-    [day]: temperature
+    [day]: book
   })
   .then(()=>{
     alert("Data stored successfully :D");
@@ -87,10 +87,10 @@ function setData(userID, year, month, day, temperature){
 }
 
 // -------------------------Update data in database --------------------------
-function updateData(userID, year, month, day, temperature){
+function updateData(userID, year, month, day, book){
   //Must use brackets around variable names to use as a key
   update(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
-    [day]: temperature
+    [day]: book
   })
   .then(()=>{
     alert("Data stored successfully :D");
@@ -246,9 +246,10 @@ window.onload = function(){
 
   // Update data function call
   document.getElementById('update').onclick = function(){
-    const year = document.getElementById('year').value;
+    console.log("everything is fine")
     const month = document.getElementById('month').value;
     const day = document.getElementById('day').value;
+    const year = document.getElementById('year').value;
     const book = document.getElementById('book').value;
     const userID = currentUser.uid;
 
