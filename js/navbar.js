@@ -37,7 +37,6 @@ function getUserFromCookies() {
     } else {
         currentUser = JSON.parse(sessionStorage.getItem('user'))
     }
-    console.log(currentUser)
 }
 // Sign-out function that will remove user info from local/session storage and
 // sign-out from FRD
