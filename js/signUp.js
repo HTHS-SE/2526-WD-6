@@ -41,8 +41,7 @@ const auth = getAuth()
 const db = getDatabase(app)
 
 // ---------------- Register New User --------------------------------//
-
-document.getElementById('submitData').onclick = function () {
+function register() {
   const firstName = document.getElementById('firstName').value
   const lastName = document.getElementById('lastName').value
   const email = document.getElementById('userEmail').value
@@ -82,6 +81,18 @@ document.getElementById('submitData').onclick = function () {
       alert(errorMessage)
     })
 }
+
+document.getElementById('submitData').onclick = register
+function handleKeyPress(key) {
+  if (key.code == 'Enter') {
+    register()
+  }
+}
+
+document.getElementById('firstName').addEventListener('keypress', handleKeyPress)
+document.getElementById('lastName').addEventListener('keypress', handleKeyPress)
+document.getElementById('userEmail').addEventListener('keypress', handleKeyPress)
+document.getElementById('userPassword').addEventListener('keypress', handleKeyPress)
 
 // --------------- Check for null, empty ("") or all spaces only ------------//
 function isEmptyorSpaces(str) {
