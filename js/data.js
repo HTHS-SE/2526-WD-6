@@ -201,91 +201,55 @@ function deleteData(userID, year, month, day){
 }
 
 
-// --------------------------- Home Page Loading -----------------------------
-window.onload = function(){
+// Get, Set, Update, Delete Data in FRD
+// Set (Insert) data function call
+document.getElementById('set').onclick = function () {
+    const year = document.getElementById('year').value
+    const month = document.getElementById('month').value
+    const day = document.getElementById('day').value
+    const book = document.getElementById('book').value
+    const userID = currentUser.uid
 
-  /* ------------------------- Set Welcome Message -------------------------
-  getUsername();  //Get current user's first name
-  if(currentUser == null){
-    userLink.innerText = "Create New Account";
-    userLink.classList.replace("nav-link", "btn");
-    userLink.classList.add("btn-primary");
-    userLink.href = "signUp.html";
+    setData(userID, year, month, day, book)
+}
 
-    signOutLink.innerText  = "Sign In";
-    signOutLink.classList.replace("nav-link", "btn");
-    signOutLink.classList.add("btn-success");
-    signOutLink.href="signIn.html";
-  }
-  else{
-    userLink.innerText = currentUser.firstname;
-    welcome.innerText = "Welcome " + currentUser.firstname;
-    userLink.classList.replace("btn", "nav-link");
-    userLink.classList.add("btn-primary");
-    userLink.href = "#";
+// Update data function call
+document.getElementById('update').onclick = function () {
+    console.log('everything is fine')
+    const month = document.getElementById('month').value
+    const day = document.getElementById('day').value
+    const year = document.getElementById('year').value
+    const book = document.getElementById('book').value
+    const userID = currentUser.uid
 
-    signOutLink.innerText  = "Sign Out";
-    signOutLink.classList.replace("btn", "nav-link");
-    signOutLink.classList.add("btn-success");
-    this.document.getElementById('signOut').onclick = function(){
-      SignOutUser();
-    }
-  }*/
-  
-  // Get, Set, Update, Delete Data in FRD
-  // Set (Insert) data function call
-  document.getElementById('set').onclick = function(){
-    const year = document.getElementById('year').value;
-    const month = document.getElementById('month').value;
-    const day = document.getElementById('day').value;
-    const book = document.getElementById('book').value;
-    const userID = currentUser.uid;
+    updateData(userID, year, month, day, book)
+}
 
-    setData(userID, year, month, day, book);
-  };
+// Get a datum function call
+document.getElementById('get').onclick = function () {
+    const year = document.getElementById('getYear').value
+    const month = document.getElementById('getMonth').value
+    const day = document.getElementById('getDay').value
+    const userID = currentUser.uid
 
-  // Update data function call
-  document.getElementById('update').onclick = function(){
-    console.log("everything is fine")
-    const month = document.getElementById('month').value;
-    const day = document.getElementById('day').value;
-    const year = document.getElementById('year').value;
-    const book = document.getElementById('book').value;
-    const userID = currentUser.uid;
+    getData(userID, year, month, day)
+}
 
-    updateData(userID, year, month, day, book);
-  };
-
-  // Get a datum function call
-  document.getElementById('get').onclick = function(){
-    const year = document.getElementById('getYear').value;
-    const month = document.getElementById('getMonth').value;
-    const day = document.getElementById('getDay').value;
-    const userID = currentUser.uid;
-
-    getData(userID, year, month, day);
-  };
-
-  // Get a data set function call
-  document.getElementById('getDataSet').onclick = function(){
+// Get a data set function call
+document.getElementById('getDataSet').onclick = function(){
     const year = document.getElementById('getSetYear').value
     const month = document.getElementById('getSetMonth').value
     const userID = currentUser.uid
 
     getDataSet(userID, year, month)
-  }
+}
 
-  // Delete a single day's data function call
-  document.getElementById('delete').onclick = function(){
-
+// Delete a single day's data function call
+document.getElementById('delete').onclick = function(){
     const year = document.getElementById('delYear').value
     const month = document.getElementById('delMonth').value
     const day = document.getElementById('delDay').value
     const userID = currentUser.uid
 
     deleteData(userID, year, month, day)
-
-  }
-  
-
 }
