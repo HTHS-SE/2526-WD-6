@@ -42,17 +42,15 @@ let currentUser = null;
 
 // ----------------------- Get User's Name ------------------------------
 function getUsername(){
-  //Grab value for the 'keep loged in' switch
-  let keepLoggedIn = localStorage.getItem("keepLoggedIn");
+    //Grab value for the 'keep logged in' switch
+    let keepLoggedIn = localStorage.getItem('keepLoggedIn')
 
-  //Grab user info passed from signIn.js
-  if(keepLoggedIn == 'yes'){
-    currentUser = JSON.parse(localStorage.getItem('user'));
-  }
-  else{
-    currentUser = JSON.parse(sessionStorage.getItem('user'));
-
-  }
+    //Grab user info passed from signIn.js
+    if (keepLoggedIn == 'yes') {
+        currentUser = JSON.parse(localStorage.getItem('user'))
+    } else {
+        currentUser = JSON.parse(sessionStorage.getItem('user'))
+    }
 }
 
 // Sign-out function that will remove user info from local/session storage and
@@ -109,19 +107,19 @@ function getData(userID, year, month, day){
   const dbref = ref(db)
 
   get(child(dbref, `users/${userID}/data/${year}/${month}`))
-    .then((snapshot)=>{
-      if(snapshot.exists()){
-        yearVal.textContent = year
-        monthVal.textContent = month
-        dayVal.textContent = day
+      .then((snapshot) => {
+          if (snapshot.exists()) {
+              yearVal.textContent = year
+              monthVal.textContent = month
+              dayVal.textContent = day
 
-        //to get a value from a snapshot: snapshot.val()[key]
-        tempVal.textContent = snapshot.val()[day]
-      }else{
-        alert('No data found for this day')
-    }
-
-  }).catch((err)=> alert("Unsucessful" + err))
+              //to get a value from a snapshot: snapshot.val()[key]
+              tempVal.textContent = snapshot.val()[day]
+          } else {
+              alert('No data found for this day')
+          }
+      })
+      .catch((err) => alert('Unsuccessful' + err))
 
 }
 
@@ -196,7 +194,7 @@ function deleteData(userID, year, month, day){
     alert('data removed successfully :D')
   })
   .catch((error)=>{
-    alert('unsucessful, error: ' + error)
+    alert('unsuccessful, error: ' + error)
   })
 }
 

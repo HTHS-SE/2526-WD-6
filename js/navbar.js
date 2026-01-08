@@ -46,7 +46,7 @@ function signOutUser() {
     localStorage.removeItem('keepLoggedIn')
 
     signOut(auth).catch((err) => alert(err))
-    if (window.location.pathname == 'user.html') {
+    if (window.location.pathname == '/user.html') {
         window.location = 'index.html'
     } else {
         window.location.reload()
