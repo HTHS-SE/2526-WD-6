@@ -186,34 +186,34 @@ function deleteData(userID, year, month, day){
 
 
 // Update data function call
-document.getElementById('update').onclick = function () {
-    console.log('everything is fine')
-    const month = document.getElementById('month').value
-    const day = document.getElementById('day').value
-    const year = document.getElementById('year').value
-    const book = document.getElementById('book').value
-    const userID = currentUser.uid
+document.getElementById('updateButton').onclick = function () {
+  console.log('everything is fine')
+  const month = document.getElementById('updateMonth').value
+  const day = document.getElementById('updateDay').value
+  const year = document.getElementById('updateYear').value
+  const book = document.getElementById('updateBook').value
+  const userID = currentUser.uid
 
-    updateData(userID, year, month, day, book)
+  updateData(userID, year, month, day, book)
 }
 
 // Get a datum function call
-document.getElementById('get').onclick = function () {
-    const year = document.getElementById('getYear').value
-    const month = document.getElementById('getMonth').value
-    const day = document.getElementById('getDay').value
-    const userID = currentUser.uid
+document.getElementById('getButton').onclick = function () {
+  const year = document.getElementById('getYear').value
+  const month = document.getElementById('getMonth').value
+  const day = document.getElementById('getDay').value
+  const userID = currentUser.uid
 
-    getData(userID, year, month, day)
+  getData(userID, year, month, day)
 }
 
 // Get a data set function call
-document.getElementById('getDataSet').onclick = function(){
-    const year = document.getElementById('getSetYear').value
-    const month = document.getElementById('getSetMonth').value
-    const userID = currentUser.uid
+document.getElementById('getDatasetButton').onclick = function () {
+  const year = document.getElementById('getDatasetYear').value
+  const month = document.getElementById('getDatasetMonth').value
+  const userID = currentUser.uid
 
-    getDataSet(userID, year, month)
+  getDataSet(userID, year, month)
 }
 
 // Delete a single day's data function call
