@@ -218,10 +218,10 @@ document.getElementById('getDatasetButton').onclick = function () {
 
 // Delete a single day's data function call
 document.getElementById('delete').onclick = function(){
-    const year = document.getElementById('delYear').value
-    const month = document.getElementById('delMonth').value
-    const day = document.getElementById('delDay').value
-    const userID = currentUser.uid
+  const year = document.getElementById('delYear').value
+  const month = document.getElementById('delMonth').value
+  const day = document.getElementById('delDay').value
+  const userID = currentUser.uid
 
-    deleteData(userID, year, month, day)
-}*/
+  deleteData(userID, year, month, day)
+}
