@@ -88,7 +88,7 @@ function getData(userID, year, month, day){
   let yearVal = document.getElementById('yearVal')
   let monthVal = document.getElementById('monthVal')
   let dayVal = document.getElementById('dayVal')
-  let tempVal = document.getElementById('tempVal')
+  let bookVal = document.getElementById('bookVal')
 
   const dbref = ref(db)
 
@@ -100,7 +100,7 @@ function getData(userID, year, month, day){
               dayVal.textContent = day
 
               //to get a value from a snapshot: snapshot.val()[key]
-              tempVal.textContent = snapshot.val()[day]
+              bookVal.textContent = snapshot.val()[day]
           } else {
               alert('No data found for this day')
           }
@@ -122,7 +122,7 @@ async function getDataSet(userID, year, month){
   monthVal.textContent = `Month: ${month}`
 
   const days = [];
-  const temps = [];
+  const books = [];
   const tbodyEl = document.getElementById('tbody-2'); //Select <tbody> element
 
   const dbref = ref(db);  //Firebase parameter to access database
@@ -138,7 +138,7 @@ async function getDataSet(userID, year, month){
         console.log(child.key, child.val())
         //Push values to corresponding arrays
         days.push(child.key)
-        temps.push(child.val())
+        books.push(child.val())
       })
     }
     else{
@@ -152,19 +152,19 @@ async function getDataSet(userID, year, month){
   //Dynamically add table rows to HTML using string interpolation
   tbodyEl.innerHTML = '' //Clear any existing table
   for(let i = 0; i<days.length; i++){
-    addItemToTable(days[i], temps[i], tbodyEl)
+    addItemToTable(days[i], books[i], tbodyEl)
   }
 }
 
 // Add a item to the table of data
-function addItemToTable(day, temp, tbody){
-  console.log(day, temp)
+function addItemToTable(day, book, tbody){
+  console.log(day, book)
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
 
   td1.innerHTML = day;
-  td2.innerHTML = temp
+  td2.innerHTML = book
 
   tRow.appendChild(td1)
   tRow.appendChild(td2)
@@ -174,8 +174,8 @@ function addItemToTable(day, temp, tbody){
 
 
 // -------------------------Delete a day's data from FRD ---------------------
-function deleteData(userID, year, month, day){
-  remove(ref(db, 'users/' + userID + '/data/' + year + '/' + month + '/' + day))
+function deleteData(userID, book){
+  remove(ref(db, 'users/' + userID + '/data/' + book))
   .then(()=>{
     alert('data removed successfully :D')
   })
@@ -218,12 +218,10 @@ document.getElementById('getDataSetButton').onclick = function () {
 
 // Delete a single day's data function call
 document.getElementById('delete').onclick = function(){
-  const year = document.getElementById('delYear').value
-  const month = document.getElementById('delMonth').value
-  const day = document.getElementById('delDay').value
-  const userID = currentUser.uid
+    const book = document.getElementById('delBook').value
+    const userID = currentUser.uid
 
-  deleteData(userID, year, month, day)
+    deleteData(userID, book)
 }
 
 window.addEventListener('load', getUsername)
