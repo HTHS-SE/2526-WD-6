@@ -175,7 +175,7 @@
                             <option value="Dec">Dec</option>
                         </select>
                         <input class="form-control mb-3" id="getDataSetYear" placeholder="Year">
-                        <button type="button" id="getDataSetButton" name="getDatasetButton" class="btn btn-outline-primary mb-3 w-100">Get
+                        <button type="button" id="getDataSetButton" name="getDataSetButton" class="btn btn-outline-primary mb-3 w-100">Get
                             books</button>
                     </form>
                     <table id="getDataSetTable" class="table m-3">
@@ -185,6 +185,15 @@
                             <th scope="col">Finished</th>
                         </tr>
                     </table>
+                    <br>
+
+                    <!--* Delete Data Point-->
+                    <h2 class="strong overview-front ovPadRight">Delete a Read</h2>
+                    <form>
+                        <input type="text" class="form-control mb-3" id="delBook" placeholder="Book to Delete">
+                        <button type="button" id="delete" name="getButton" class="btn btn-outline-primary mb-3 w-100">Delete!</button>
+                    </form>
+                    <p id="getOutput" class="d-none">On </p>
                     <br>
 
                     <!--* Chart -->
