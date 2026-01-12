@@ -70,20 +70,6 @@ function SignOutUser(){
 }
 
 
-// ------------------------Set (insert) data into FRD ------------------------
-function setData(userID, year, month, day, book){
-  //Must use brackets around variable names to use as a key
-  set(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
-    [day]: book
-  })
-  .then(()=>{
-    alert("Data stored successfully :D");
-  })
-  .catch((error)=>{
-    alert("There was an error. Error: " +error);
-  })
-}
-
 // -------------------------Update data in database --------------------------
 function updateData(userID, year, month, day, book){
   //Must use brackets around variable names to use as a key
