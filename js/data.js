@@ -208,9 +208,9 @@ document.getElementById('getButton').onclick = function () {
 }
 
 // Get a data set function call
-document.getElementById('getDatasetButton').onclick = function () {
-  const year = document.getElementById('getDatasetYear').value
-  const month = document.getElementById('getDatasetMonth').value
+document.getElementById('getDataSetButton').onclick = function () {
+  const year = document.getElementById('getDataSetYear').value
+  const month = document.getElementById('getDataSetMonth').value
   const userID = currentUser.uid
 
   getDataSet(userID, year, month)
