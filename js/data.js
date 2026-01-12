@@ -185,7 +185,7 @@ function deleteData(userID, year, month, day){
 }
 
 
-// Update data function call
+// Update data function call (Log A Read)
 document.getElementById('update').onclick = function () {
     console.log('everything is fine')
     const month = document.getElementById('month').value
@@ -197,7 +197,7 @@ document.getElementById('update').onclick = function () {
     updateData(userID, year, month, day, book)
 }
 
-// Get a datum function call
+/* Get a datum function call
 document.getElementById('get').onclick = function () {
     const year = document.getElementById('getYear').value
     const month = document.getElementById('getMonth').value
@@ -224,4 +224,4 @@ document.getElementById('delete').onclick = function(){
     const userID = currentUser.uid
 
     deleteData(userID, year, month, day)
-}
+}*/
