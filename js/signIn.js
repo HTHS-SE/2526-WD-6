@@ -47,7 +47,7 @@ function signIn() {
         .then((userCredential) => {
             //Create user credential and store the user ID
             const user = userCredential.user
-
+            console.log(user.uid)
             //Log sign in date in DB
             // 'update' method will only add last login info and won't overwrite everything else
             //using 'set' would overwrite everything in the node
