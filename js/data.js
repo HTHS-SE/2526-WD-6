@@ -225,3 +225,5 @@ document.getElementById('delete').onclick = function(){
 
   deleteData(userID, year, month, day)
 }
+
+window.addEventListener('load', getUsername)
