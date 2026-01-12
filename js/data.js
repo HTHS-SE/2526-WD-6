@@ -84,86 +84,77 @@ function updateData(userID, year, month, day, book){
   })
 }
 // ----------------------Get a datum from FRD (single data point)---------------
-function getData(userID, year, month, day){
-  let yearVal = document.getElementById('yearVal')
-  let monthVal = document.getElementById('monthVal')
-  let dayVal = document.getElementById('dayVal')
-  let bookVal = document.getElementById('bookVal')
+function getData(userID, year, month, day) {
+  let bookVal = document.getElementById('getBook')
 
   const dbref = ref(db)
 
   get(child(dbref, `users/${userID}/data/${year}/${month}`))
-      .then((snapshot) => {
-          if (snapshot.exists()) {
-              yearVal.textContent = year
-              monthVal.textContent = month
-              dayVal.textContent = day
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot)
 
-              //to get a value from a snapshot: snapshot.val()[key]
-              bookVal.textContent = snapshot.val()[day]
-          } else {
-              alert('No data found for this day')
-          }
-      })
-      .catch((err) => alert('Unsuccessful' + err))
-
+        //to get a value from a snapshot: snapshot.val()[key]
+        // bookVal.textContent = snapshot.val()[day]
+      } else {
+        alert('No data found for this day')
+      }
+    })
+    .catch((err) => alert('Unsuccessful' + err))
 }
-
 
 // ---------------------------Get a month's data set --------------------------
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
-async function getDataSet(userID, year, month){
-
+async function getDataSet(userID, year, month) {
   let yearVal = document.getElementById('setYearVal')
   let monthVal = document.getElementById('setMonthVal')
 
   yearVal.textContent = `Year: ${year}`
   monthVal.textContent = `Month: ${month}`
 
-  const days = [];
-  const books = [];
-  const tbodyEl = document.getElementById('tbody-2'); //Select <tbody> element
+  const days = []
+  const books = []
+  const tbodyEl = document.getElementById('tbody-2') //Select <tbody> element
 
-  const dbref = ref(db);  //Firebase parameter to access database
+  const dbref = ref(db) //Firebase parameter to access database
 
   //Wait for all data to be pulled from FRD
-  //Must provide correct path through nodes to the data 
-  await get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month)).then((snapshot)=>{
+  //Must provide correct path through nodes to the data
+  await get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val())
 
-    if (snapshot.exists()){
-      console.log(snapshot.val())
-
-      snapshot.forEach(child => {
-        console.log(child.key, child.val())
-        //Push values to corresponding arrays
-        days.push(child.key)
-        books.push(child.val())
-      })
-    }
-    else{
-      alert('No data found :(')
-    }
-  })
-  .catch((error)=>{
-    alert("unsuccessful, error: "+error)
-  });
+        snapshot.forEach((child) => {
+          console.log(child.key, child.val())
+          //Push values to corresponding arrays
+          days.push(child.key)
+          books.push(child.val())
+        })
+      } else {
+        alert('No data found :(')
+      }
+    })
+    .catch((error) => {
+      alert('unsuccessful, error: ' + error)
+    })
 
   //Dynamically add table rows to HTML using string interpolation
   tbodyEl.innerHTML = '' //Clear any existing table
-  for(let i = 0; i<days.length; i++){
+  for (let i = 0; i < days.length; i++) {
     addItemToTable(days[i], books[i], tbodyEl)
   }
 }
 
 // Add a item to the table of data
-function addItemToTable(day, book, tbody){
+function addItemToTable(day, book, tbody) {
   console.log(day, book)
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
 
-  td1.innerHTML = day;
+  td1.innerHTML = day
   td2.innerHTML = book
 
   tRow.appendChild(td1)
@@ -172,18 +163,16 @@ function addItemToTable(day, book, tbody){
   tbody.appendChild(tRow)
 }
 
-
 // -------------------------Delete a day's data from FRD ---------------------
-function deleteData(userID, book){
+function deleteData(userID, book) {
   remove(ref(db, 'users/' + userID + '/data/' + book))
-  .then(()=>{
-    alert('data removed successfully :D')
-  })
-  .catch((error)=>{
-    alert('unsuccessful, error: ' + error)
-  })
+    .then(() => {
+      alert('data removed successfully :D')
+    })
+    .catch((error) => {
+      alert('unsuccessful, error: ' + error)
+    })
 }
-
 
 // Update data function call (Log A Read)
 document.getElementById('updateButton').onclick = function () {
@@ -199,12 +188,10 @@ document.getElementById('updateButton').onclick = function () {
 
 // Get a datum function call
 document.getElementById('getButton').onclick = function () {
-  const year = document.getElementById('getYear').value
-  const month = document.getElementById('getMonth').value
-  const day = document.getElementById('getDay').value
+  const book = document.getElementById('getBook').value
   const userID = currentUser.uid
 
-  getData(userID, year, month, day)
+  getData(userID, book)
 }
 
 // Get a data set function call
