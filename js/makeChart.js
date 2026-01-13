@@ -30,7 +30,7 @@ const auth = getAuth()
 //Return instance of your app's Firebase Realtime Database (FRD)
 const db = getDatabase(app)
 
-async function getData(userID, filterYear) {
+async function getDataSet(userID, filterYear) {
   const days = []
   const books = []
 
@@ -43,11 +43,11 @@ async function getData(userID, filterYear) {
       if (snapshot.exists()) {
         snapshot.forEach((child) => {
           console.log(child.key, child.val())
-          let { year, month, day } = child.val()
+          let { year } = child.val()
           if (year == filterYear) {
             //Push values to corresponding arrays
             books.push(child.key)
-            days.push(`${day} ${month} ${year}`)
+            days.push(child.val())
           }
         })
       } else {
@@ -61,29 +61,48 @@ async function getData(userID, filterYear) {
   return [books, days]
 }
 
-const plotData = async (data) => {
-  const states = data[0]
-  const positive = data[1]
-  const lineChart = document.getElementById('line-chart')
+async function countByMonth(data) {
+  const books = data[0]
+  const days = data[1]
+
+  let output = {
+    Jan: 0,
+    Feb: 0,
+    Mar: 0,
+    Apr: 0,
+    May: 0,
+    Jun: 0,
+    Jul: 0,
+    Aug: 0,
+    Sep: 0,
+    Oct: 0,
+    Nov: 0,
+    Dec: 0,
+  }
+  for (let i = 0; i < books.length; i++) {
+    let key = days[i]['month']
+    output[key]++
+  }
+  return output
+}
+
+
+const plotData = async (counts) => {
+  const lineChart = document.getElementById('bar-chart')
 
   const myChart = new Chart(lineChart, {
     // Construct the chart
-    type: 'line',
+    type: 'bar',
     data: {
       // Define data
-      labels: states, // x-axis labels
+      labels: Utils.months({count: 12}), // x series label
       datasets: [
-        // Each object describes one dataset of y-values
-        //  including display properties.  To add more datasets,
-        //  place a comma after the closing curly brace of the last
-        //  data set object and add another dataset object.
         {
-          label: `Positive Cases`, // Dataset label for legend
-          data: positive, // Reference to array of y-values
-          fill: false, // Fill area under the linechart (true = yes, false = no)
+          // label: `Positive Cases`, // Dataset label for legend
+          data: counts, // Reference to array of y-values
+          // fill: false, // Fill area under the linechart (true = yes, false = no)
           backgroundColor: '#ea4335', // Color for data marker
           borderColor: 'a#ea4335', // Color for data marker border
-          tension: 0.1,
         },
       ],
     },
@@ -91,33 +110,33 @@ const plotData = async (data) => {
       // Define display chart display options
       responsive: true, // Re-size based on screen size
       maintainAspectRatio: false,
-      scales: {
-        // Display options for x & y axes
-        x: {
-          // x-axis properties
-          title: {
-            display: false,
-          },
-        },
-        y: {
-          // y-axis properties
-          title: {
-            display: false,
-          },
-          ticks: {
-            // y-axis tick mark properties
-            min: 0, // starting value
-            max: 400000,
-            font: {
-              size: 14,
-            },
-          },
-          // grid: {
-          //     // y-axis gridlines
-          //     color: '#6c767e',
-          // },
-        },
-      },
+      // scales: {
+      //   // Display options for x & y axes
+      //   x: {
+      //     // x-axis properties
+      //     title: {
+      //       display: false,
+      //     },
+      //   },
+      //   y: {
+      //     // y-axis properties
+      //     title: {
+      //       display: false,
+      //     },
+      //     ticks: {
+      //       // y-axis tick mark properties
+      //       min: 0, // starting value
+      //       max: 400000,
+      //       font: {
+      //         size: 14,
+      //       },
+      //     },
+      //     // grid: {
+      //     //     // y-axis gridlines
+      //     //     color: '#6c767e',
+      //     // },
+      //   },
+      // },
       plugins: {
         // Display options for title and legend
         title: {
@@ -132,34 +151,22 @@ const plotData = async (data) => {
             bottom: 30,
           },
         },
-        legend: {
-          align: 'right',
-          position: 'top',
-        },
+        // legend: {
+        //   align: 'right',
+        //   position: 'top',
+        // },
       },
     },
   })
 }
 
-const makeCaption = async (data) => {
-  table = document.getElementById('caption')
-  let positive = data[1]
-  let avg_positive = Math.round(positive.reduce((x, sum) => x + sum) / positive.length)
-  let hospitalized = data[2]
-  let avg_hospital = Math.round(hospitalized.reduce((x, sum) => x + sum) / hospitalized.length)
-
-  table.innerHTML = `
-    <tr>
-        <td>Average of Positive Cases: <strong>${avg_positive}</strong></td>
-        <td>Average of Currently Hospitalized: <strong>${avg_hospital}</strong></td>
-
-    `
-}
 
 const main = async () => {
-  data = await getData()
+  let data = await getDataSet('N1a9uwqPCxgVTlNnYxRs2eIa8S22', '2025')
   console.log(data)
-  await Promise.all([plotData(data), makeCaption(data)])
+  let counts = await countByMonth(data)
+  console.log(counts)
+  await plotData(counts)
 }
 
 main()
