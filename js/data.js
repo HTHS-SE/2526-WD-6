@@ -91,7 +91,6 @@ function getData(userID, book) {
   get(child(dbref, `users/${userID}/data/${book}`))
     .then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val())
         let { year, month, day } = snapshot.val()
         getOutput.textContent = `Last read: ${day} ${month} ${year}`
         getOutput.style.display = 'block'
@@ -106,30 +105,25 @@ function getData(userID, book) {
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
 async function getDataSet(userID, year, month) {
-  let yearVal = document.getElementById('setYearVal')
-  let monthVal = document.getElementById('setMonthVal')
-
-  yearVal.textContent = `Year: ${year}`
-  monthVal.textContent = `Month: ${month}`
-
   const days = []
   const books = []
-  const tbodyEl = document.getElementById('tbody-2') //Select <tbody> element
+  const tbodyEl = document
+    .getElementById('getDataSetTable')
+    .getElementsByTagName('tbody')[0] // Select child <tbody> element
 
   const dbref = ref(db) //Firebase parameter to access database
 
   //Wait for all data to be pulled from FRD
   //Must provide correct path through nodes to the data
-  await get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month))
+  await get(child(dbref, 'users/' + userID + '/data'))
     .then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val())
-
         snapshot.forEach((child) => {
           console.log(child.key, child.val())
           //Push values to corresponding arrays
-          days.push(child.key)
-          books.push(child.val())
+          books.push(child.key)
+          let { year, month, day } = child.val()
+          days.push(`${day} ${month} ${year}`)
         })
       } else {
         alert('No data found :(')
@@ -141,8 +135,8 @@ async function getDataSet(userID, year, month) {
 
   //Dynamically add table rows to HTML using string interpolation
   tbodyEl.innerHTML = '' //Clear any existing table
-  for (let i = 0; i < days.length; i++) {
-    addItemToTable(days[i], books[i], tbodyEl)
+  for (let i = 0; i < books.length; i++) {
+    addItemToTable(books[i], days[i], tbodyEl)
   }
 }
 
