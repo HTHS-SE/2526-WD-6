@@ -73,9 +73,9 @@ function SignOutUser(){
 // -------------------------Update data in database --------------------------
 function updateData(userID, year, month, day, book){
   //Must use brackets around variable names to use as a key
-  update(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
-    [day]: book
-  })
+  update(ref(db, 'users/' + userID + '/data/' + book),{
+    ['day']: day, ['month']:month, ['year']:year
+  } )
   .then(()=>{
     alert("Data stored successfully :D");
   })
@@ -170,7 +170,6 @@ function deleteData(userID, book) {
 
 // Update data function call (Log A Read)
 document.getElementById('updateButton').onclick = function () {
-  console.log('everything is fine')
   const month = document.getElementById('updateMonth').value
   const day = document.getElementById('updateDay').value
   const year = document.getElementById('updateYear').value
