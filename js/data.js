@@ -104,7 +104,7 @@ function getData(userID, book) {
 // ---------------------------Get a month's data set --------------------------
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
-async function getDataSet(userID, year, month) {
+async function getDataSet(userID, filterYear, filterMonth) {
   const days = []
   const books = []
   const tbodyEl = document
@@ -120,10 +120,12 @@ async function getDataSet(userID, year, month) {
       if (snapshot.exists()) {
         snapshot.forEach((child) => {
           console.log(child.key, child.val())
-          //Push values to corresponding arrays
-          books.push(child.key)
           let { year, month, day } = child.val()
-          days.push(`${day} ${month} ${year}`)
+          if (year == filterYear && month == filterMonth) {
+            //Push values to corresponding arrays
+            books.push(child.key)
+            days.push(`${day} ${month} ${year}`)
+          }
         })
       } else {
         alert('No data found :(')
@@ -142,7 +144,6 @@ async function getDataSet(userID, year, month) {
 
 // Add a item to the table of data
 function addItemToTable(day, book, tbody) {
-  console.log(day, book)
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
