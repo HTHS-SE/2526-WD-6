@@ -84,13 +84,11 @@ function updateData(userID, year, month, day, book){
   })
 }
 // ----------------------Get a datum from FRD (single data point)---------------
-function getData(userID, year, month, day) {
-  let bookVal = document.getElementById('getBook').value
+function getData(userID, book) {
   let getOutput = document.getElementById('getOutput')
 
   const dbref = ref(db)
-
-  get(child(dbref, `users/${userID}/data/${bookVal}`))
+  get(child(dbref, `users/${userID}/data/${book}`))
     .then((snapshot) => {
       if (snapshot.exists()) {
         console.log(snapshot.val())
