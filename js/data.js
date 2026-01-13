@@ -85,19 +85,20 @@ function updateData(userID, year, month, day, book){
 }
 // ----------------------Get a datum from FRD (single data point)---------------
 function getData(userID, year, month, day) {
-  let bookVal = document.getElementById('getBook')
+  let bookVal = document.getElementById('getBook').value
+  let getOutput = document.getElementById('getOutput')
 
   const dbref = ref(db)
 
-  get(child(dbref, `users/${userID}/data/${year}/${month}`))
+  get(child(dbref, `users/${userID}/data/${bookVal}`))
     .then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot)
-
-        //to get a value from a snapshot: snapshot.val()[key]
-        // bookVal.textContent = snapshot.val()[day]
+        console.log(snapshot.val())
+        let { year, month, day } = snapshot.val()
+        getOutput.textContent = `Last read: ${day} ${month} ${year}`
+        getOutput.style.display = 'block'
       } else {
-        alert('No data found for this day')
+        alert('No data found for this book')
       }
     })
     .catch((err) => alert('Unsuccessful' + err))
