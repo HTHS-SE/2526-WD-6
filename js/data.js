@@ -53,6 +53,13 @@ function getUsername(){
     }
 }
 
+//Add the user's name to their reading log
+function addName(){
+  console.log('running addName')
+  let header = document.getElementById('readingLog')
+  header.innerHTML = currentUser.firstname + "'s Reading Log"
+}
+
 // Sign-out function that will remove user info from local/session storage and
 // sign-out from FRD
 function SignOutUser(){
@@ -204,4 +211,4 @@ document.getElementById('delete').onclick = function(){
     deleteData(userID, book)
 }
 
-window.addEventListener('load', getUsername)
+window.addEventListener('load', getUsername(), addName())
