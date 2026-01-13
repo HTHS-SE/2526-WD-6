@@ -82,7 +82,7 @@ function updateData(userID, year, month, day, book){
   //Must use brackets around variable names to use as a key
   update(ref(db, 'users/' + userID + '/data/' + book),{
     ['day']: day, ['month']:month, ['year']:year
-  } )
+  })
   .then(()=>{
     alert("Data stored successfully :D");
   })
