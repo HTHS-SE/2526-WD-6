@@ -30,6 +30,7 @@ const auth = getAuth()
 //Return instance of your app's Firebase Realtime Database (FRD)
 const db = getDatabase(app)
 
+// ----------------- Data Processing  ------------------------//
 async function getDataSet(userID, filterYear) {
   const days = []
   const books = []
@@ -88,21 +89,21 @@ async function countByMonth(data) {
 
 
 const plotData = async (counts) => {
-  const lineChart = document.getElementById('bar-chart')
+  const barChart = document.getElementById('bar-chart')
 
-  const myChart = new Chart(lineChart, {
+  const myChart = new Chart(barChart, {
     // Construct the chart
     type: 'bar',
     data: {
       // Define data
-      labels: Utils.months({count: 12}), // x series label
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], // x series label
       datasets: [
         {
           // label: `Positive Cases`, // Dataset label for legend
           data: counts, // Reference to array of y-values
           // fill: false, // Fill area under the linechart (true = yes, false = no)
-          backgroundColor: '#ea4335', // Color for data marker
-          borderColor: 'a#ea4335', // Color for data marker border
+          backgroundColor: '#455d7a', // Color for data marker
+          borderColor: '#455d7a', // Color for data marker border
         },
       ],
     },
@@ -111,37 +112,30 @@ const plotData = async (counts) => {
       responsive: true, // Re-size based on screen size
       maintainAspectRatio: false,
       // scales: {
-      //   // Display options for x & y axes
-      //   x: {
-      //     // x-axis properties
-      //     title: {
-      //       display: false,
+      // y: {
+      //   // y-axis properties
+      //   title: {
+      //     display: false,
+      //   },
+      //   ticks: {
+      //     // y-axis tick mark properties
+      //     min: 0, // starting value
+      //     max: 10,
+      //     font: {
+      //       size: 14,
       //     },
       //   },
-      //   y: {
-      //     // y-axis properties
-      //     title: {
-      //       display: false,
-      //     },
-      //     ticks: {
-      //       // y-axis tick mark properties
-      //       min: 0, // starting value
-      //       max: 400000,
-      //       font: {
-      //         size: 14,
-      //       },
-      //     },
-      //     // grid: {
-      //     //     // y-axis gridlines
-      //     //     color: '#6c767e',
-      //     // },
-      //   },
+      //   //     // grid: {
+      //   //     //     // y-axis gridlines
+      //   //     //     color: '#6c767e',
+      //   //     // },
+      //   // },
       // },
       plugins: {
         // Display options for title and legend
         title: {
           display: true,
-          text: 'COVID-19 Cases by State',
+          text: 'Books by Month',
           font: {
             size: 24,
           },
@@ -151,20 +145,18 @@ const plotData = async (counts) => {
             bottom: 30,
           },
         },
-        // legend: {
-        //   align: 'right',
-        //   position: 'top',
-        // },
+        legend: {
+          display: false,
+        },
       },
     },
   })
 }
 
-
 const main = async () => {
   let data = await getDataSet('N1a9uwqPCxgVTlNnYxRs2eIa8S22', '2025')
   console.log(data)
-  let counts = await countByMonth(data)
+  let counts = Object.values(await countByMonth(data))
   console.log(counts)
   await plotData(counts)
 }
