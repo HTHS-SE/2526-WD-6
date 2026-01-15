@@ -1,7 +1,8 @@
-/* *user.html* */
-#chart-container {
-    display: none;
+#chart-wrapper {
+    height: 40vh;
+    margin-bottom: 2rem;
 }
+*/
 /* *signUp.html* */
 #submitData:hover {
     background-color: var(--color-1);
