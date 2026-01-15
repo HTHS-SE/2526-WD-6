@@ -58,7 +58,6 @@ async function getDataSet(userID, filterYear) {
     .catch((error) => {
       alert('unsuccessful, error: ' + error)
     })
-
   return [books, days]
 }
 
@@ -87,11 +86,13 @@ async function countByMonth(data) {
   return output
 }
 
-
+let myChart = null
 const plotData = async (counts) => {
   const barChart = document.getElementById('bar-chart')
-
-  const myChart = new Chart(barChart, {
+  if (myChart != null) {
+    myChart.destroy()
+  }
+  myChart = new Chart(barChart, {
     // Construct the chart
     type: 'bar',
     data: {
@@ -135,7 +136,7 @@ const plotData = async (counts) => {
         // Display options for title and legend
         title: {
           display: true,
-          text: 'Books by Month',
+          text: 'Books Finished by Month',
           font: {
             size: 24,
           },
@@ -153,12 +154,9 @@ const plotData = async (counts) => {
   })
 }
 
-const main = async () => {
-  let data = await getDataSet('N1a9uwqPCxgVTlNnYxRs2eIa8S22', '2025')
-  console.log(data)
+export async function showChart(uid, year) {
+  let data = await getDataSet(uid, year)
   let counts = Object.values(await countByMonth(data))
-  console.log(counts)
   await plotData(counts)
 }
 
-main()

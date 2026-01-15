@@ -1,87 +1,87 @@
 // This JS file is for viewing and logging data after Sign-In -----------------//
 
- // ----------------- Firebase Setup & Initialization ------------------------//
+import { showChart } from './makeChart.js'
 
- // Import the functions you need from the SDKs you need
- import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+// ----------------- Firebase Setup & Initialization ------------------------//
 
- import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
- from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
 
-import {getDatabase, ref, set, update, child, get, remove}
- from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
 
- // TODO: Add SDKs for Firebase products that you want to use
- // https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, set, update, child, get, remove } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
 
- // Your web app's Firebase configuration
- const firebaseConfig = {
-   apiKey: "AIzaSyCptQUzhXL4nLiRxvEuhuINLKRRfuKK4zY",
-   authDomain: "sci-fi-showcase.firebaseapp.com",
-   databaseURL: "https://sci-fi-showcase-default-rtdb.firebaseio.com",
-   projectId: "sci-fi-showcase",
-   storageBucket: "sci-fi-showcase.firebasestorage.app",
-   messagingSenderId: "794618128894",
-   appId: "1:794618128894:web:216c3d0b1fee81e4b538af"
- };
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
- // Initialize Firebase
- const app = initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyCptQUzhXL4nLiRxvEuhuINLKRRfuKK4zY',
+  authDomain: 'sci-fi-showcase.firebaseapp.com',
+  databaseURL: 'https://sci-fi-showcase-default-rtdb.firebaseio.com',
+  projectId: 'sci-fi-showcase',
+  storageBucket: 'sci-fi-showcase.firebasestorage.app',
+  messagingSenderId: '794618128894',
+  appId: '1:794618128894:web:216c3d0b1fee81e4b538af',
+}
 
- //Initialize Firebase Authentication
-const auth = getAuth();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+
+//Initialize Firebase Authentication
+const auth = getAuth()
 
 //Return instance of your app's Firebase Realtime Database (FRD)
-const db = getDatabase(app);
+const db = getDatabase(app)
 // ---------------------// Get reference values -----------------------------
-let userLink = document.getElementById('userLink');
-let signOutLink = document.getElementById('signOut');
-let welcome = document.getElementById('welcome');
-let currentUser = null;
-
+let userLink = document.getElementById('userLink')
+let signOutLink = document.getElementById('signOut')
+let welcome = document.getElementById('welcome')
+let currentUser = null
 
 // ----------------------- Get User's Name ------------------------------
-function getUsername(){
-    //Grab value for the 'keep logged in' switch
-    let keepLoggedIn = localStorage.getItem('keepLoggedIn')
+function getUsername() {
+  //Grab value for the 'keep logged in' switch
+  let keepLoggedIn = localStorage.getItem('keepLoggedIn')
 
-    //Grab user info passed from signIn.js
-    if (keepLoggedIn == 'yes') {
-        currentUser = JSON.parse(localStorage.getItem('user'))
-    } else {
-        currentUser = JSON.parse(sessionStorage.getItem('user'))
-    }
+  //Grab user info passed from signIn.js
+  if (keepLoggedIn == 'yes') {
+    currentUser = JSON.parse(localStorage.getItem('user'))
+  } else {
+    currentUser = JSON.parse(sessionStorage.getItem('user'))
+  }
 }
 
 // Sign-out function that will remove user info from local/session storage and
 // sign-out from FRD
-function SignOutUser(){
-  sessionStorage.removeItem('user'); //Clear session storage
-  localStorage.removeItem('user'); //Clear local storage 
-  localStorage.removeItem('keepLoggedIn');
+function SignOutUser() {
+  sessionStorage.removeItem('user') //Clear session storage
+  localStorage.removeItem('user') //Clear local storage
+  localStorage.removeItem('keepLoggedIn')
 
-  signOut(auth).then(()=> {
-    //Sign out successful
-  }).catch((error)=>{
-    //Error occurred 
-  });
+  signOut(auth)
+    .then(() => {
+      //Sign out successful
+    })
+    .catch((error) => {
+      //Error occurred
+    })
 
   window.location = 'user.html'
 }
 
-
 // -------------------------Update data in database --------------------------
-function updateData(userID, year, month, day, book){
+function updateData(userID, year, month, day, book) {
   //Must use brackets around variable names to use as a key
-  update(ref(db, 'users/' + userID + '/data/' + year + "/" + month),{
-    [day]: book
+  update(ref(db, 'users/' + userID + '/data/' + year + '/' + month), {
+    [day]: book,
   })
-  .then(()=>{
-    alert("Data stored successfully :D");
-  })
-  .catch((error)=>{
-    alert("There was an error. Error: " +error);
-  })
+    .then(() => {
+      alert('Data stored successfully :D')
+    })
+    .catch((error) => {
+      alert('There was an error. Error: ' + error)
+    })
 }
 // ----------------------Get a datum from FRD (single data point)---------------
 function getData(userID, book) {
@@ -107,9 +107,7 @@ function getData(userID, book) {
 async function getDataSet(userID, filterYear, filterMonth) {
   const days = []
   const books = []
-  const tbodyEl = document
-    .getElementById('getDataSetTable')
-    .getElementsByTagName('tbody')[0] // Select child <tbody> element
+  const tbodyEl = document.getElementById('getDataSetTable').getElementsByTagName('tbody')[0] // Select child <tbody> element
 
   const dbref = ref(db) //Firebase parameter to access database
 
@@ -195,6 +193,13 @@ document.getElementById('getDataSetButton').onclick = function () {
   const userID = currentUser.uid
 
   getDataSet(userID, year, month)
+}
+
+document.getElementById('chartButton').onclick = function () {
+  const year = document.getElementById('chartYear').value
+  const userID = currentUser.uid
+  showChart(userID, year)
+  document.getElementById('chart-container').style.display = 'block'
 }
 
 // Delete a single day's data function call
