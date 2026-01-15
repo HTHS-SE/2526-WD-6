@@ -93,61 +93,68 @@
               <div class="card-body">
                 <h2 class="card-title">Log a read</h2>
                 <form>
-                  <select class="form-select mb-3" aria-label="Default select example" id="updateMonth">
-                    <option selected>Month</option>
-                    <option value="Jan">Jan</option>
-                    <option value="Feb">Feb</option>
-                    <option value="Mar">Mar</option>
-                    <option value="Apr">Apr</option>
-                    <option value="May">May</option>
-                    <option value="Jun">Jun</option>
-                    <option value="Jul">Jul</option>
-                    <option value="Aug">Aug</option>
-                    <option value="Sep">Sep</option>
-                    <option value="Oct">Oct</option>
-                    <option value="Nov">Nov</option>
-                    <option value="Dec">Dec</option>
-                  </select>
-                  <select class="form-select mb-3" aria-label="Default select example" id="updateDay">
-                    <option selected>Day</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                  </select>
-                  <input class="form-control mb-3" id="updateYear" placeholder="Year" />
+                  <div class="row">
+                    <div class="col">
+                      <select class="form-select mb-3" aria-label="Default select example" id="updateMonth">
+                        <option selected>Month</option>
+                        <option value="Jan">Jan</option>
+                        <option value="Feb">Feb</option>
+                        <option value="Mar">Mar</option>
+                        <option value="Apr">Apr</option>
+                        <option value="May">May</option>
+                        <option value="Jun">Jun</option>
+                        <option value="Jul">Jul</option>
+                        <option value="Aug">Aug</option>
+                        <option value="Sep">Sep</option>
+                        <option value="Oct">Oct</option>
+                        <option value="Nov">Nov</option>
+                        <option value="Dec">Dec</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <select class="form-select mb-3" aria-label="Default select example" id="updateDay">
+                        <option selected>Day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <input class="form-control mb-3" id="updateYear" placeholder="Year" />
+                    </div>
+                    </div>
                   <input type="text" class="form-control mb-3" id="updateBook" placeholder="Book" />
-        
+                
                   <!--Button will use update function to log data-->
-                  <button type="button" id="updateButton" name="updateButton"
-                    class="btn btn-outline-primary mb-3 w-100">Log</button>
+                  <button type="button" id="updateButton" name="updateButton" class="btn btn-outline-primary mb-3 w-100">Log</button>
                 </form>
               </div>
             </div>
@@ -170,6 +177,8 @@
                       <h2 class="card-title">What did I read this month?</h2>
                   <!--* Get Data Set-->
                   <form>
+                    <div class="row">
+                      <div class="col">
                     <select class="form-select mb-3" aria-label="Default select example" id="getDataSetMonth">
                       <option selected>Month</option>
                       <option value="Jan">Jan</option>
@@ -185,7 +194,11 @@
                       <option value="Nov">Nov</option>
                       <option value="Dec">Dec</option>
                     </select>
-                    <input class="form-control mb-3" id="getDataSetYear" placeholder="Year" />
+                    </div>
+                    <div class="col">
+                      <input class="form-control mb-3" id="getDataSetYear" placeholder="Year" />
+                    </div>
+                    </div>
                   <button type="button" id="getDataSetButton" name="getDataSetButton" class="btn btn-outline-primary mb-3 w-100">Get
                     books</button>
                   </form>
@@ -213,23 +226,24 @@
             </div>
           </div>
         </div>
+        <div class="card">
+          <div class="card-body">
+            <!--* Chart -->
+            <h2 class="strong">Chart my Reads</h2>
+            <form>
+              <input class="form-control mb-3" id="chartYear" placeholder="Year">
+              <button type="button" id="chartButton" name="chartButton" class="btn btn-outline-primary mb-3 w-100">Plot</button>
+            </form>
+            <div id="chart-container" class="container" style="display: none;">
+              <br>
+              <div class="container d-flex overflow-hidden bg-light rounded-4" id="chart-wrapper">
+                <canvas id="bar-chart"></canvas>
+              </div>
+              </div>
+              </div>
+              </div>
       </div>
-      <div class="card">
-        <div class="card-body">
-          <!--* Chart -->
-          <h2 class="strong">Chart my Reads</h2>
-          <form>
-            <input class="form-control mb-3" id="chartYear" placeholder="Year">
-            <button type="button" id="chartButton" name="chartButton" class="btn btn-outline-primary mb-3 w-100">Plot</button>
-          </form>
-          <div id="chart-container" class="container" style="display: none;">
-            <br>
-            <div class="container d-flex overflow-hidden bg-light rounded-4" id="chart-wrapper">
-              <canvas id="bar-chart"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
 
     <!--*Footer*-->
