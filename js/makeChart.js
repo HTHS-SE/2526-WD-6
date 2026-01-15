@@ -83,6 +83,7 @@ async function countByMonth(data) {
     let key = days[i]['month']
     output[key]++
   }
+  console.log(output)
   return output
 }
 
@@ -92,6 +93,7 @@ const plotData = async (counts) => {
   if (myChart != null) {
     myChart.destroy()
   }
+  Chart.defaults.font.family = '"League Spartan", Arial, Helvetica, sans-serif'
   myChart = new Chart(barChart, {
     // Construct the chart
     type: 'bar',
@@ -112,26 +114,26 @@ const plotData = async (counts) => {
       // Define display chart display options
       responsive: true, // Re-size based on screen size
       maintainAspectRatio: false,
-      // scales: {
-      // y: {
-      //   // y-axis properties
-      //   title: {
-      //     display: false,
-      //   },
-      //   ticks: {
-      //     // y-axis tick mark properties
-      //     min: 0, // starting value
-      //     max: 10,
-      //     font: {
-      //       size: 14,
-      //     },
-      //   },
-      //   //     // grid: {
-      //   //     //     // y-axis gridlines
-      //   //     //     color: '#6c767e',
-      //   //     // },
-      //   // },
-      // },
+      scales: {
+        y: {
+          // y-axis properties
+          title: {
+            display: false,
+          },
+          ticks: {
+            callback: function (value) {
+              // return only integer steps
+              if (value % 1 === 0) {
+                return this.getLabelForValue(value)
+              }
+            },
+          },
+          //     // grid: {
+          //     //     // y-axis gridlines
+          //     //     color: '#6c767e',
+          //     // },
+        },
+      },
       plugins: {
         // Display options for title and legend
         title: {
