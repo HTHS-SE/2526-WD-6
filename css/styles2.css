@@ -2,7 +2,7 @@
     height: 40vh;
     margin-bottom: 2rem;
 }
-*/
+
 /* *signUp.html* */
 #submitData:hover {
     background-color: var(--color-1);
@@ -10,7 +10,7 @@
 /* *sign in pages* */
 .sign-in,
 .sign-up {
-    width: max(50%, 480px);
+    width: max(50%, 350px);
     margin: 0 auto;
 }
 /* *Footer* */
