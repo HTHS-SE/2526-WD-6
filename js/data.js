@@ -33,6 +33,7 @@ const auth = getAuth()
 
 //Return instance of your app's Firebase Realtime Database (FRD)
 const db = getDatabase(app)
+
 // ---------------------// Get reference values -----------------------------
 let userLink = document.getElementById('userLink')
 let signOutLink = document.getElementById('signOut')
@@ -74,12 +75,12 @@ function SignOutUser() {
       //Error occurred
     })
 
-  window.location = 'user.html'
+  window.location = 'user.html' //Sends signed out user to landing page 
 }
 
 // -------------------------Update data in database --------------------------
 function updateData(userID, year, month, day, book) {
-  //Must use brackets around variable names to use as a key
+  //Structure: userID -> Data -> Book Title -> day, month, and year
   update(ref(db, 'users/' + userID + '/data/' + book),{
     ['day']: day, ['month']:month, ['year']:year
   })
@@ -149,6 +150,7 @@ async function getDataSet(userID, filterYear, filterMonth) {
 
 // Add a item to the table of data
 function addItemToTable(day, book, tbody) {
+  //Creates row and cells for new data
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
@@ -162,7 +164,7 @@ function addItemToTable(day, book, tbody) {
   tbody.appendChild(tRow)
 }
 
-// -------------------------Delete a day's data from FRD ---------------------
+// -------------------------Delete a book from FRD ---------------------
 function deleteData(userID, book) {
   remove(ref(db, 'users/' + userID + '/data/' + book))
     .then(() => {
@@ -184,7 +186,7 @@ document.getElementById('updateButton').onclick = function () {
   updateData(userID, year, month, day, book)
 }
 
-// Get a datum function call
+// Get a datum function call (When Did I Read This Book?)
 document.getElementById('getButton').onclick = function () {
   const book = document.getElementById('getBook').value
   const userID = currentUser.uid
@@ -192,7 +194,7 @@ document.getElementById('getButton').onclick = function () {
   getData(userID, book)
 }
 
-// Get a data set function call
+// Get a data set function call (What Did I Read This Month?)
 document.getElementById('getDataSetButton').onclick = function () {
   const year = document.getElementById('getDataSetYear').value
   const month = document.getElementById('getDataSetMonth').value
@@ -201,6 +203,7 @@ document.getElementById('getDataSetButton').onclick = function () {
   getDataSet(userID, year, month)
 }
 
+//Chart a data set using chartJS (Chart My Reads)
 document.getElementById('chartButton').onclick = function () {
   const year = document.getElementById('chartYear').value
   const userID = currentUser.uid
@@ -208,7 +211,7 @@ document.getElementById('chartButton').onclick = function () {
   document.getElementById('chart-container').style.display = 'block'
 }
 
-// Delete a single day's data function call
+// Delete a single day's data function call (Delete A Read)
 document.getElementById('delete').onclick = function(){
     const book = document.getElementById('delBook').value
     const userID = currentUser.uid
@@ -216,4 +219,5 @@ document.getElementById('delete').onclick = function(){
     deleteData(userID, book)
 }
 
+//call getUsername() and addName() when the page loads 
 window.addEventListener('load', getUsername(), addName())

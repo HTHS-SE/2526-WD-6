@@ -53,16 +53,21 @@ function signOutUser() {
     }
 }
 
+//Changes navbar links if user is signed out
 window.onload = function () {
     getUserFromCookies()
     let userLink = document.getElementById('reading-log-link')
     let signInOutLink = document.getElementById('sign-in-out-link')
 
+    //If the current user is not signed into an account, the navbar will have a 
+        //Log IN option that redirects to the login page
     if (currentUser == null) {
         userLink.parentElement.parentElement.style.display = 'none' // hide userLink
         signInOutLink.innerText = 'Log in'
         signInOutLink.href = 'signIn.html'
-    } else {
+    }
+    // If the user IS logged in, the navbar will show a Log OUT option
+    else {
         signInOutLink.innerText = 'Log Out'
         signInOutLink.onclick = signOutUser
     }

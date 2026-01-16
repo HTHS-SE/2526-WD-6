@@ -82,6 +82,8 @@ function register() {
     })
 }
 
+//Allows user to submit fields using the enter key 
+    //(rather than having to hit the Register button)
 document.getElementById('submitData').onclick = register
 function handleKeyPress(key) {
   if (key.code == 'Enter') {
@@ -89,6 +91,7 @@ function handleKeyPress(key) {
   }
 }
 
+//Applies handleKeyPress to all fields for signing up
 document.getElementById('firstName').addEventListener('keypress', handleKeyPress)
 document.getElementById('lastName').addEventListener('keypress', handleKeyPress)
 document.getElementById('userEmail').addEventListener('keypress', handleKeyPress)
@@ -104,7 +107,7 @@ function validation(firstName, lastName, email, password) {
   let fNameRegex = /^[a-zA-Z]+$/
   let lNameRegex = /^[a-zA-Z]+$/
   let emailRegex = /^[a-zA-Z0-9]+@ctemc\.org$/
-
+  //Password does not need a regex - firebase will make sure password is >6 characters
   if (
     isEmptyorSpaces(firstName) ||
     isEmptyorSpaces(lastName) ||

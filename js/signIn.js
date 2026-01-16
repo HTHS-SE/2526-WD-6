@@ -107,11 +107,14 @@ function logIn(user) {
     }
 }
 
+//Allows user to submit fields using the enter key 
+    //(rather than having to hit the Sign In button)
 function handleKeyPress(key) {
     if (key.code == 'Enter') {
         signIn()
     }
 }
 
+//Applies handleKeyPress to email and password fields
 document.getElementById('loginEmail').addEventListener('keypress', handleKeyPress)
 document.getElementById('loginPassword').addEventListener('keypress', handleKeyPress)

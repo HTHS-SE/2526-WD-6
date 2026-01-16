@@ -61,6 +61,7 @@ async function getDataSet(userID, filterYear) {
   return [books, days]
 }
 
+//Function to count how many books were read per month
 async function countByMonth(data) {
   const books = data[0]
   const days = data[1]
@@ -87,9 +88,12 @@ async function countByMonth(data) {
   return output
 }
 
+
+//----------Creating the bar chart ------------//
 let myChart = null
 const plotData = async (counts) => {
   const barChart = document.getElementById('bar-chart')
+  //If nothing is present, get rid of the chart
   if (myChart != null) {
     myChart.destroy()
   }
