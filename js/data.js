@@ -7,12 +7,9 @@ import { showChart } from './makeChart.js'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
+import { getAuth } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
 
-import { getDatabase, ref, set, update, child, get, remove } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, update, child, get, remove } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -34,13 +31,8 @@ const auth = getAuth()
 //Return instance of your app's Firebase Realtime Database (FRD)
 const db = getDatabase(app)
 
-// ---------------------// Get reference values -----------------------------
-let userLink = document.getElementById('userLink')
-let signOutLink = document.getElementById('signOut')
-let welcome = document.getElementById('welcome')
-let currentUser = null
-
 // ----------------------- Get User's Name ------------------------------
+let currentUser = null
 function getUsername() {
   //Grab value for the 'keep logged in' switch
   let keepLoggedIn = localStorage.getItem('keepLoggedIn')
@@ -54,35 +46,19 @@ function getUsername() {
 }
 
 //Add the user's name to their reading log
-function addName(){
+function addName() {
   console.log('running addName')
   let header = document.getElementById('readingLog')
   header.innerHTML = currentUser.firstname + "'s Reading Log"
 }
 
-// Sign-out function that will remove user info from local/session storage and
-// sign-out from FRD
-function SignOutUser() {
-  sessionStorage.removeItem('user') //Clear session storage
-  localStorage.removeItem('user') //Clear local storage
-  localStorage.removeItem('keepLoggedIn')
-
-  signOut(auth)
-    .then(() => {
-      //Sign out successful
-    })
-    .catch((error) => {
-      //Error occurred
-    })
-
-  window.location = 'user.html' //Sends signed out user to landing page 
-}
-
 // -------------------------Update data in database --------------------------
 function updateData(userID, year, month, day, book) {
   //Structure: userID -> Data -> Book Title -> day, month, and year
-  update(ref(db, 'users/' + userID + '/data/' + book),{
-    ['day']: day, ['month']:month, ['year']:year
+  update(ref(db, 'users/' + userID + '/data/' + book), {
+    ['day']: day,
+    ['month']: month,
+    ['year']: year,
   })
     .then(() => {
       alert('Data stored successfully :D')
@@ -127,6 +103,7 @@ async function getDataSet(userID, filterYear, filterMonth) {
         snapshot.forEach((child) => {
           console.log(child.key, child.val())
           let { year, month, day } = child.val()
+          // Only count data if it corresponds with the chosen month & year
           if (year == filterYear && month == filterMonth) {
             //Push values to corresponding arrays
             books.push(child.key)

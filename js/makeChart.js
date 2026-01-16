@@ -1,14 +1,12 @@
+/// -------------- utility module for creating the chart -------------------//
 // ----------------- Firebase Setup & Initialization ------------------------//
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
+import { getAuth } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
 
-import { getDatabase, ref, set, update, child, get } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, child, get } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -44,6 +42,8 @@ async function getDataSet(userID, filterYear) {
       if (snapshot.exists()) {
         snapshot.forEach((child) => {
           console.log(child.key, child.val())
+
+          // Only count data if it corresponds with the chosen month & year
           let { year } = child.val()
           if (year == filterYear) {
             //Push values to corresponding arrays
@@ -88,12 +88,11 @@ async function countByMonth(data) {
   return output
 }
 
-
 //----------Creating the bar chart ------------//
 let myChart = null
 const plotData = async (counts) => {
   const barChart = document.getElementById('bar-chart')
-  //If nothing is present, get rid of the chart
+  //If chart is present, remove before making new one
   if (myChart != null) {
     myChart.destroy()
   }
@@ -106,9 +105,7 @@ const plotData = async (counts) => {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], // x series label
       datasets: [
         {
-          // label: `Positive Cases`, // Dataset label for legend
           data: counts, // Reference to array of y-values
-          // fill: false, // Fill area under the linechart (true = yes, false = no)
           backgroundColor: '#455d7a', // Color for data marker
           borderColor: '#455d7a', // Color for data marker border
         },
@@ -132,10 +129,6 @@ const plotData = async (counts) => {
               }
             },
           },
-          //     // grid: {
-          //     //     // y-axis gridlines
-          //     //     color: '#6c767e',
-          //     // },
         },
       },
       plugins: {
@@ -165,4 +158,3 @@ export async function showChart(uid, year) {
   let counts = Object.values(await countByMonth(data))
   await plotData(counts)
 }
-

@@ -41,16 +41,17 @@ function getUserFromCookies() {
 // Sign-out function that will remove user info from local/session storage
 // and sign-out from Firebase
 function signOutUser() {
-    sessionStorage.removeItem('user')
-    localStorage.removeItem('user')
-    localStorage.removeItem('keepLoggedIn')
+  sessionStorage.removeItem('user')
+  localStorage.removeItem('user')
+  localStorage.removeItem('keepLoggedIn')
 
-    signOut(auth).catch((err) => alert(err))
-    if (window.location.pathname == '/user.html') {
-        window.location = 'index.html'
-    } else {
-        window.location.reload()
-    }
+  signOut(auth).catch((err) => alert(err))
+  // if at user.html => home page, otherwise reload for new navbar
+  if (window.location.pathname == '/user.html') {
+    window.location = 'index.html'
+  } else {
+    window.location.reload()
+  }
 }
 
 //Changes navbar links if user is signed out

@@ -5,20 +5,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
 
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js'
 
-import {
-  getDatabase,
-  ref,
-  set,
-  update,
-  child,
-  get,
-} from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
+import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -63,7 +52,7 @@ function register() {
       // 'set' function creates a new reference or completely replaces an existing one
       //Each new user will be placed under the 'users' node
       set(ref(db, 'users/' + user.uid + '/accountInfo'), {
-        uid: user.uid, //Save the userID for home.js reference
+        uid: user.uid, //Save the userID for navbar.js and data.js reference
         email: email,
         firstname: firstName,
         lastname: lastName,
