@@ -87,15 +87,15 @@
       <div class="container">
         <!-- Card organized in 1x4 or 2x2 tbl format -->
         <div class="row row-cols-1 row-cols-md-2 g-5">
-          <!--* Submit Data-->
           <div class="col">
             <div class="card mb-5">
+              <!--* Submit Data-->
               <div class="card-body">
                 <h2 class="card-title">Log a read</h2>
                 <form>
-                  <div class="row">
+                  <div class="row"> <!-- Organize in a 3x1 grid -->
                     <div class="col">
-                      <select class="form-select mb-3" aria-label="Default select example" id="updateMonth">
+                      <select class="form-select mb-3" id="updateMonth">
                         <option selected>Month</option>
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
@@ -112,7 +112,7 @@
                       </select>
                     </div>
                     <div class="col">
-                      <select class="form-select mb-3" aria-label="Default select example" id="updateDay">
+                      <select class="form-select mb-3" id="updateDay">
                         <option selected>Day</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -150,76 +150,79 @@
                     <div class="col">
                       <input class="form-control mb-3" id="updateYear" placeholder="Year" />
                     </div>
-                    </div>
+                  </div>
                   <input type="text" class="form-control mb-3" id="updateBook" placeholder="Book" />
-                
+      
                   <!--Button will use update function to log data-->
-                  <button type="button" id="updateButton" name="updateButton" class="btn btn-outline-primary mb-3 w-100">Log</button>
+                  <button type="button" id="updateButton" name="updateButton"
+                    class="btn btn-outline-primary mb-3 w-100">Log</button>
                 </form>
               </div>
             </div>
             <div class="card mb-5">
+              <!--* Get Data Point-->
               <div class="card-body">
                 <h2 class="card-title">When did I read this book?</h2>
-                <!--* Get Data Point-->
                 <form>
                   <input type="text" class="form-control mb-3" id="getBook" placeholder="Book" />
                   <button type="button" id="getButton" name="getButton" class="btn btn-outline-primary mb-3 w-100">Get
                     Dates</button>
                 </form>
-                <p id="getOutput" style="display: none"></p>
-                </div>
-                </div>
-                </div>
-                <div class="col">
-                  <div class="card mb-5">
-                    <div class="card-body">
-                      <h2 class="card-title">What did I read this month?</h2>
-                  <!--* Get Data Set-->
-                  <form>
-                    <div class="row">
-                      <div class="col">
-                    <select class="form-select mb-3" aria-label="Default select example" id="getDataSetMonth">
-                      <option selected>Month</option>
-                      <option value="Jan">Jan</option>
-                      <option value="Feb">Feb</option>
-                      <option value="Mar">Mar</option>
-                      <option value="Apr">Apr</option>
-                      <option value="May">May</option>
-                      <option value="Jun">Jun</option>
-                      <option value="Jul">Jul</option>
-                      <option value="Aug">Aug</option>
-                      <option value="Sep">Sep</option>
-                      <option value="Oct">Oct</option>
-                      <option value="Nov">Nov</option>
-                      <option value="Dec">Dec</option>
-                    </select>
+                <p id="getOutput" style="display: none"></p> <!-- output defaults to hidden -->
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-5">
+              <div class="card-body">
+                <h2 class="card-title">What did I read this month?</h2>
+                <!--* Get Data Set-->
+                <form>
+                  <div class="row"> <!-- organize input in 2x1 grid -->
+                    <div class="col">
+                      <select class="form-select mb-3" id="getDataSetMonth">
+                        <option selected>Month</option>
+                        <option value="Jan">Jan</option>
+                        <option value="Feb">Feb</option>
+                        <option value="Mar">Mar</option>
+                        <option value="Apr">Apr</option>
+                        <option value="May">May</option>
+                        <option value="Jun">Jun</option>
+                        <option value="Jul">Jul</option>
+                        <option value="Aug">Aug</option>
+                        <option value="Sep">Sep</option>
+                        <option value="Oct">Oct</option>
+                        <option value="Nov">Nov</option>
+                        <option value="Dec">Dec</option>
+                      </select>
                     </div>
                     <div class="col">
                       <input class="form-control mb-3" id="getDataSetYear" placeholder="Year" />
                     </div>
-                    </div>
-                  <button type="button" id="getDataSetButton" name="getDataSetButton" class="btn btn-outline-primary mb-3 w-100">Get
+                  </div>
+                  <button type="button" id="getDataSetButton" name="getDataSetButton"
+                    class="btn btn-outline-primary mb-3 w-100">Get
                     books</button>
-                  </form>
-                  <table id="getDataSetTable" class="table p-3">
-                    <thead>
-                      <tr>
-                        <th scope="col">Book</th>
-                        <th scope="col">Finish Date</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
+                </form>
+                <table id="getDataSetTable" class="table p-3">
+                  <thead>
+                    <tr>
+                      <th scope="col">Book</th>
+                      <th scope="col">Finish Date</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
               </div>
-              </div>
+            </div>
             <div class="card mb-5">
               <div class="card-body">
                 <h2 class="card-title">Delete a Read</h2>
                 <!--* Delete Data Point-->
                 <form>
                   <input type="text" class="form-control mb-3" id="delBook" placeholder="Book to Delete" />
-                  <button type="button" id="delete" name="getButton" class="btn btn-outline-primary mb-3 w-100">Delete!</button>
+                  <button type="button" id="delete" name="getButton"
+                    class="btn btn-outline-primary mb-3 w-100">Delete!</button>
                 </form>
                 <p id="getOutput" class="d-none">On</p>
               </div>
@@ -234,16 +237,15 @@
               <input class="form-control mb-3" id="chartYear" placeholder="Year">
               <button type="button" id="chartButton" name="chartButton" class="btn btn-outline-primary mb-3 w-100">Plot</button>
             </form>
-            <div id="chart-container" class="container" style="display: none;">
+            <div id="chart-container" class="container" style="display: none;"> <!-- chart defaults to hidden -->
               <br>
               <div class="container d-flex overflow-hidden bg-light rounded-4" id="chart-wrapper">
                 <canvas id="bar-chart"></canvas>
               </div>
-              </div>
-              </div>
-              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </section>
 
     <!--*Footer*-->
