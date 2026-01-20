@@ -85,7 +85,7 @@ function getData(userID, book) {
         getOutput.textContent = `Last read: ${day} ${month} ${year}`
         getOutput.style.display = 'block'
       } else {
-        alert('No data found for this book')
+        alert('You haven\'t read this book yet! Make sure to put it on your TBR :)')
       }
     })
     .catch((err) => alert('Unsuccessful' + err))
@@ -117,7 +117,7 @@ async function getDataSet(userID, filterYear, filterMonth) {
           }
         })
       } else {
-        alert('No data found :(')
+        alert('You didn\'t read anything this month :(')
       }
     })
     .catch((error) => {
