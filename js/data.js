@@ -95,14 +95,13 @@ function getData(userID, book) {
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
 async function getDataSet(userID, filterYear, filterMonth) {
-  const days = []
-  const books = []
   const tbodyEl = document.getElementById('getDataSetTable').getElementsByTagName('tbody')[0] // Select child <tbody> element
 
   const dbref = ref(db) //Firebase parameter to access database
 
   //Wait for all data to be pulled from FRD
   //Must provide correct path through nodes to the data
+  let data = []
   await get(child(dbref, 'users/' + userID + '/data'))
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -111,35 +110,38 @@ async function getDataSet(userID, filterYear, filterMonth) {
           let { year, month, day } = child.val()
           // Only count data if it corresponds with the chosen month & year
           if (year == filterYear && month == filterMonth) {
-            //Push values to corresponding arrays
-            books.push(child.key)
-            days.push(`${day} ${month} ${year}`)
+            data.push([child.key, child.val()])
           }
         })
       } else {
-        alert('You didn\'t read anything this month :(')
+        alert("You didn't read anything this month :(")
       }
     })
     .catch((error) => {
       alert('unsuccessful, error: ' + error)
     })
 
+  // Sort books by date ascending; all of them are same month and year
+  data.sort((a, b) => a[1].day - b[1].day)
+
   //Dynamically add table rows to HTML using string interpolation
   tbodyEl.innerHTML = '' //Clear any existing table
-  for (let i = 0; i < books.length; i++) {
-    addItemToTable(books[i], days[i], tbodyEl)
+  for (let i = 0; i < data.length; i++) {
+    let { year, month, day } = data[i][1]
+    addItemToTable(data[i][0], `${day} ${month} ${year}`, tbodyEl)
+    console.log(data[i])
   }
 }
 
 // Add a item to the table of data
-function addItemToTable(day, book, tbody) {
+function addItemToTable(book, day, tbody) {
   //Creates row and cells for new data
   let tRow = document.createElement('tr')
   let td1 = document.createElement('td')
   let td2 = document.createElement('td')
 
-  td1.innerHTML = day
-  td2.innerHTML = book
+  td1.innerHTML = book
+  td2.innerHTML = day
 
   tRow.appendChild(td1)
   tRow.appendChild(td2)
