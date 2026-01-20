@@ -95,14 +95,14 @@ function logIn(user) {
 
     //Session storage is temporary (only while browser is open)
     //Info saved as a string (must convert JS object to string)
-    //Session storage will be cleared with a signOut() function in home.js
+    //Session storage will be cleared with a logOut() function in home.js
     if (!keepLoggedIn) {
         sessionStorage.setItem('user', JSON.stringify(user))
         window.location = 'user.html' //Redirect browser to user.html
     }
 
     //Local storage is permanent (keep user logged in even if browser is closed)
-    //Local storage will be cleared with signOut() function in home.js
+    //Local storage will be cleared with logOut() function in home.js
     else {
         localStorage.setItem('keepLoggedIn', 'yes')
         localStorage.setItem('user', JSON.stringify(user))
@@ -111,7 +111,7 @@ function logIn(user) {
 }
 
 //Allows user to submit fields using the enter key 
-    //(rather than having to hit the Sign In button)
+    //(rather than having to hit the Log In button)
 function handleKeyPress(key) {
     if (key.code == 'Enter') {
         signIn()
