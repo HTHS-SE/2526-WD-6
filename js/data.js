@@ -95,8 +95,6 @@ function getData(userID, book) {
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
 async function getDataSet(userID, filterYear, filterMonth) {
-  const days = []
-  const books = []
   const tbodyEl = document.getElementById('getDataSetTable').getElementsByTagName('tbody')[0] // Select child <tbody> element
 
   const dbref = ref(db) //Firebase parameter to access database
@@ -112,12 +110,11 @@ async function getDataSet(userID, filterYear, filterMonth) {
           let { year, month, day } = child.val()
           // Only count data if it corresponds with the chosen month & year
           if (year == filterYear && month == filterMonth) {
-            //Push values to corresponding arrays
             data.push([child.key, child.val()])
           }
         })
       } else {
-        alert('You didn\'t read anything this month :(')
+        alert("You didn't read anything this month :(")
       }
     })
     .catch((error) => {
