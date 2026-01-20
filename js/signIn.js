@@ -1,6 +1,13 @@
- // ----------------- User Log-In Page --------------------------------------//
+/*
+Name: Addison Vincelli and Alex Mazurczyk
+Date: 20 Jan 2026
 
- // ----------------- Firebase Setup & Initialization ------------------------//
+File: data.js
+Purpose: Interacts with Firebase API to log in user,
+         stores login info in session/local storage
+*/
+
+// ----------------- Firebase Setup & Initialization ------------------------//
 
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";

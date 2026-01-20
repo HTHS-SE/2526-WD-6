@@ -1,4 +1,10 @@
-// This JS file is for registering a new app user ---------------------------//
+/*
+Name: Addison Vincelli and Alex Mazurczyk
+Date: 20 Jan 2026
+
+File: data.js
+Purpose: Registers a new user with Firebase Auth and RTDB
+*/
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 
@@ -71,8 +77,8 @@ function register() {
     })
 }
 
-//Allows user to submit fields using the enter key 
-    //(rather than having to hit the Register button)
+//Allows user to submit fields using the enter key
+//(rather than having to hit the Register button)
 document.getElementById('submitData').onclick = register
 function handleKeyPress(key) {
   if (key.code == 'Enter') {

@@ -1,4 +1,11 @@
-/// -------------- utility module for creating the chart -------------------//
+/*
+Name: Addison Vincelli and Alex Mazurczyk
+Date: 20 Jan 2026
+
+File: makeChart.js
+Purpose: Utility module for creating the chart
+*/
+
 // ----------------- Firebase Setup & Initialization ------------------------//
 
 // Import the functions you need from the SDKs you need

@@ -1,3 +1,11 @@
+/*
+Name: Addison Vincelli and Alex Mazurczyk
+Date: 20 Jan 2026
+
+File: navbar.js
+Purpose: Update the navbar dynamically from the data in the session and local storage
+*/
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js'
 

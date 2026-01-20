@@ -1,4 +1,10 @@
-// This JS file is for viewing and logging data after Sign-In -----------------//
+/*
+Name: Addison Vincelli and Alex Mazurczyk
+Date: 20 Jan 2026
+
+File: data.js
+Purpose: Retrieves and downloads data from Firebase RTDB, displays for user
+*/
 
 import { showChart } from './makeChart.js'
 
